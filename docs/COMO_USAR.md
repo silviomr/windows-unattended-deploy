@@ -64,7 +64,8 @@ O script detecta automaticamente se é workstation ou server pelo SKU do Windows
    - `scripts/Executar-PostInstall.bat`
    - `trmm-silver-site-workstation-amd64.exe` (se usar)
 5. Adicione a estrutura `$OEM$\$1\Windows\Web\Wallpaper\` com sua imagem corporativa
-6. Salve como nova ISO ou grave direto no pendrive
+6. Adicione a estrutura `$OEM$\$1\Windows\Web\` com sua imagem de bloqueio corporativa
+7. Salve como nova ISO ou grave direto no pendrive
 
 ---
 
@@ -73,7 +74,7 @@ O script detecta automaticamente se é workstation ou server pelo SKU do Windows
 1. Configure o PC para bootar pelo pendrive (F12 / F2 / DEL)
 2. O setup do Windows inicia e **se auto-responde completamente**
 3. Ao chegar na área de trabalho, o script de pós-instalação roda automaticamente
-4. Após concluir, o PC reinicia e está pronto para uso
+4. Após concluir, o PC estará pronto para uso
 
 ---
 
