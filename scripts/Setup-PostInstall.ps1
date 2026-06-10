@@ -13,7 +13,7 @@
 # ============================================================
 # CONFIGURACOES - ajuste antes de usar
 # ============================================================
-$RustDeskRelay = "SEU_SERVIDOR_AQUI"
+$RustDeskRelay = "rustdesk.suaempresa.com"
 $RustDeskKey   = "SUA_CHAVE_AQUI"
 $DriversFolderName = "Drivers"
 $TempDir           = "C:\Windows\Temp\PostInstall"
