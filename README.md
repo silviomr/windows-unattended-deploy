@@ -63,7 +63,7 @@ $DriversFolderName = "Drivers"   # Nome da pasta de drivers a procurar
 4. Adicione a estrutura `$OEM$` com o papel de parede da empresa
 5. Grave a ISO em um pendrive ou use via boot PXE/virtual
 
-> ⚠️ **Não use o Rufus** para montar esta mídia — ele gera seu próprio `autounattend.xml` e pode conflitar.
+> ⚠️ **Caso use o Rufus** para montar esta mídia — Desmarque tudo na aba "Customize Windows Installation", pois ele gera seu próprio `autounattend.xml` e pode conflitar.
 
 ---
 
@@ -92,14 +92,17 @@ Suporte a:
 - **`.inf`** — instalados via `pnputil /add-driver /subdirs /install`
 - **`.exe`** na raiz da pasta — executados com flags silenciosas `/s /S /silent /quiet`
 
+Comando para fazer backup dos seus drivers:
+- pnputil /export-driver * C:\Drivers
+
 ---
 
 ## 🖼️ Personalização visual
 
 | Item | Caminho na mídia |
 |---|---|
-| Papel de parede | `$OEM$\$1\Windows\Web\Wallpaper\vicontec.jpg` |
-| Tela de bloqueio | Configurada via GPO/registro no `FirstLogon.ps1` |
+| Papel de parede | `$OEM$\$1\Windows\Web\Wallpaper\desktop.jpg` |
+| Tela de bloqueio | `$OEM$\$1\Windows\Web\lockscreen.jpg` |
 
 ---
 
