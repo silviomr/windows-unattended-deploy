@@ -1,0 +1,19 @@
+# Arquivos sensíveis — nunca commitar
+autounattend.xml
+*.msi
+*.exe
+*.iso
+*.img
+
+# Logs
+*.log
+Temp/
+
+# Windows
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Editor
+.vscode/
+*.swp
