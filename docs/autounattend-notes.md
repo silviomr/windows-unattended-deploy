@@ -28,14 +28,14 @@ os scripts deste repositório.
 # Chamado pelo autounattend.xml no primeiro logon
 
 # Papel de parede
-$wallpaper = "C:\Windows\Web\Wallpaper\vicontec.jpg"
+$wallpaper = "C:\Windows\Web\Wallpaper\desktop.jpg"
 if (Test-Path $wallpaper) {
     Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name Wallpaper -Value $wallpaper
     RUNDLL32.EXE user32.dll, UpdatePerUserSystemParameters
 }
 
 # Tela de bloqueio
-$lockscreen = "C:\Windows\Web\Wallpaper\vicontec.jpg"
+$lockscreen = "C:\Windows\Web\lockscreen.jpg"
 $regPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization"
 New-Item -Path $regPath -Force | Out-Null
 Set-ItemProperty -Path $regPath -Name LockScreenImage -Value $lockscreen
