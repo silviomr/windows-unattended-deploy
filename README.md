@@ -38,7 +38,7 @@ Desenvolvido e mantido por **Silver Soluções em TI**.
 
 ```
 $OEM$\$1\Windows\Web\Wallpaper\
-└── vicontec.jpg                  ← Papel de parede corporativo
+└── desktop.jpg                  ← Papel de parede corporativo
 ```
 
 ---
