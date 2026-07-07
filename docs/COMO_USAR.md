@@ -10,6 +10,13 @@
 
 ## 1. Configure os scripts
 
+Abra `scripts/autounattend.xml` e edite o bloco de configuração no topo:
+
+$RustDeskRelay     = "rustdesk.suaempresa.com"   # seu servidor
+$RustDeskKey       = "SUA_CHAVE_AQUI"             # chave pública do servidor
+
+Pode abrir no notepad++ e procurar por "silver" - onde é possível achar a opção de alterar o nome e senha do usuário padrão ( usuário: silver / senha: 12345).
+
 Abra `scripts/Setup-PostInstall.ps1` e edite o bloco de configuração no topo:
 
 ```powershell
