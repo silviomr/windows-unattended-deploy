@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
+	<!--https://schneegans.de/windows/unattend-generator/?LanguageMode=Unattended&UILanguage=pt-PT&Locale=pt-BR&Keyboard=00010416&GeoLocation=32&PEMode=Generated&SkipIntegrityCheck=true&InstallFromMode=Index&InstallFromIndex=2&PartitionMode=Unattended&TargetDisk=0&SystemSize=300&PartitionLayout=Automatic&RecoveryMode=Partition&RecoverySize=1000&DiskAssertionMode=Skip&WindowsEditionMode=Generic&WindowsEdition=home_single&ProcessorArchitecture=amd64&BypassRequirementsCheck=true&BypassNetworkCheck=true&UseConfigurationSet=true&KeepSensitiveFiles=true&ComputerNameMode=Random&TimeZoneMode=Implicit&UserAccountMode=Unattended&AccountName0=silver&AccountDisplayName0=Silver&AccountPassword0=12345&AccountGroup0=Administrators&AutoLogonMode=Own&PasswordExpirationMode=Unlimited&LockoutMode=Default&HideFiles=Hidden&TaskbarSearch=Icon&TaskbarIconsMode=Default&StartTilesMode=Default&StartPinsMode=Default&DisableFastStartup=true&EnableLongPaths=true&DisableLastAccess=true&PreventAutomaticReboot=true&TurnOffSystemSounds=true&DisableAppSuggestions=true&HideEdgeFre=true&DisableEdgeStartupBoost=true&CoreIsolationMode=Enabled&EffectsMode=Default&DesktopIconsMode=Default&StartFoldersMode=Default&VBoxGuestAdditions=true&VMwareTools=true&VirtIoGuestTools=true&ParallelsTools=true&WifiMode=Skip&ExpressSettings=DisableAll&LockKeysMode=Skip&StickyKeysMode=Default&ColorMode=Default&WallpaperMode=Script&WallpaperScript=return+%5BSystem.IO.File%5D%3A%3AReadAllBytes%28%27C%3A%5CWindows%5CWeb%5CWallpaper%5Cdesktop.jpg%27%29%3B&LockScreenMode=Script&LockScreenScript=%24key+%3D+%27HKLM%3A%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CPersonalizationCSP%27%3B%0D%0Aif+%28-not+%28Test-Path+%24key%29%29+%7B+New-Item+-Path+%24key+-Force+%7C+Out-Null+%7D%3B%0D%0ASet-ItemProperty+%24key+LockScreenImagePath+%27C%3A%5CWindows%5CWeb%5Clockscreen.jpg%27+-Force%3B%0D%0ASet-ItemProperty+%24key+LockScreenImageUrl++%27C%3A%5CWindows%5CWeb%5Clockscreen.jpg%27+-Force%3B%0D%0ASet-ItemProperty+%24key+LockScreenImageStatus+1+-Force%3B%0D%0Areturn+%5BSystem.IO.File%5D%3A%3AReadAllBytes%28%27C%3A%5CWindows%5CWeb%5Clockscreen.jpg%27%29%3B&RemoveClipchamp=true&RemoveCortana=true&RemoveDevHome=true&RemoveFeedbackHub=true&RemoveMaps=true&RemoveMixedReality=true&RemoveZuneVideo=true&RemoveNews=true&RemoveOffice365=true&RemoveOneDrive=true&RemovePeople=true&RemoveSolitaire=true&RemoveGetStarted=true&FirstLogonScript0=%40echo+off%0D%0APowerShell+-NoProfile+-ExecutionPolicy+Bypass+-Command+%22Start-Process+PowerShell+-ArgumentList+%27-NoProfile+-ExecutionPolicy+Bypass+-File+%22%22C%3A%5CWindows%5CSetup%5CScripts%5CSetup-PostInstall.ps1%22%22%27+-Verb+RunAs%22&FirstLogonScriptType0=Cmd&FirstLogonScript1=%3C%23%0D%0A.SYNOPSIS%0D%0A++++Script+de+pos-instalacao+do+Windows%0D%0A++++Instala%3A+Google+Chrome%2C+AnyDesk%2C+7-Zip%2C+RustDesk%0D%0A++++Configura%3A+Servidor+Relay+do+RustDesk%0D%0A++++Instala%3A+Drivers+encontrados+automaticamente+em+qualquer+drive%0D%0A%0D%0A.NOTES%0D%0A++++Compativel+com+execucao+via+autounattend.xml+%28contexto+SYSTEM%2C+sem+desktop%29%0D%0A++++Tambem+pode+ser+executado+manualmente%3A+clique+direito+%3E+%22Executar+com+PowerShell%22%0D%0A%23%3E%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+CONFIGURACOES+-+ajuste+antes+de+usar%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%24RustDeskRelay+%3D+%22SEU_SERVIDOR_AQUI%22%0D%0A%24RustDeskKey+++%3D+%22SUA_CHAVE_AQUI%22%0D%0A%24DriversFolderName+%3D+%22Drivers%22%0D%0A%24TempDir+++++++++++%3D+%22C%3A%5CWindows%5CTemp%5CPostInstall%22%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%0D%0A%23+%2D%2D-+Auto-elevacao+%28quando+executado+manualmente%29+%2D%2D-%0D%0A%24currentUser+%3D+%5BSecurity.Principal.WindowsIdentity%5D%3A%3AGetCurrent%28%29%0D%0A%24principal+++%3D+New-Object+Security.Principal.WindowsPrincipal%28%24currentUser%29%0D%0Aif+%28-not+%24principal.IsInRole%28%5BSecurity.Principal.WindowsBuiltInRole%5D%3A%3AAdministrator%29%29+%7B%0D%0A++++Start-Process+powershell.exe+-ArgumentList+%22-NoProfile+-ExecutionPolicy+Bypass+-File+%60%22%24PSCommandPath%60%22%22+-Verb+RunAs%0D%0A++++exit%0D%0A%7D%0D%0A%0D%0A%23+%2D%2D-+TLS+1.2+obrigatorio+para+downloads+modernos+%2D%2D-%0D%0A%5BNet.ServicePointManager%5D%3A%3ASecurityProtocol+%3D+%5BNet.SecurityProtocolType%5D%3A%3ATls12%0D%0A%0D%0A%23+%2D%2D-+Forca+o+uso+do+SystemDrive+como+TempDir+%28seguro+em+SYSTEM%2Fautounattend%29+%2D%2D-%0D%0ANew-Item+-ItemType+Directory+-Force+-Path+%24TempDir+%7C+Out-Null%0D%0A%0D%0A%23+%2D%2D-+Log+%2D%2D-%0D%0A%24logFile+%3D+%22%24TempDir%5CPostInstall_%24%28Get-Date+-Format+%27yyyyMMdd_HHmmss%27%29.log%22%0D%0AStart-Transcript+-Path+%24logFile+-Append+%7C+Out-Null%0D%0A%0D%0Afunction+Write-Step+%7B+param%28%24msg%29+Write-Host+%22%22%3B+Write-Host+%22%5B%3E%3E%3E%5D+%24msg%22+-ForegroundColor+Cyan+%7D%0D%0Afunction+Write-OK+++%7B+param%28%24msg%29+Write-Host+%22++%5BOK%5D+%24msg%22+-ForegroundColor+Green+%7D%0D%0Afunction+Write-Fail+%7B+param%28%24msg%29+Write-Host+%22++%5B%21%21%5D+%24msg%22+-ForegroundColor+Red+%7D%0D%0Afunction+Write-Info+%7B+param%28%24msg%29+Write-Host+%22++%5B%2D%2D%5D+%24msg%22+-ForegroundColor+Yellow+%7D%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+Download+com+retry+%28substitui+WebClient+sem+retry%29%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0Afunction+Download-File+%7B%0D%0A++++param%28%0D%0A++++++++%5Bstring%5D%24Url%2C%0D%0A++++++++%5Bstring%5D%24Dest%2C%0D%0A++++++++%5Bint%5D%24Tentativas+%3D+3%2C%0D%0A++++++++%5Bint%5D%24TimeoutSec+%3D+120%0D%0A++++%29%0D%0A++++for+%28%24i+%3D+1%3B+%24i+-le+%24Tentativas%3B+%24i%2B%2B%29+%7B%0D%0A++++++++try+%7B%0D%0A++++++++++++Write-Info+%22Download+%28%24i%2F%24Tentativas%29%3A+%24Url%22%0D%0A++++++++++++%24wc+%3D+New-Object+System.Net.WebClient%0D%0A++++++++++++%24wc.Headers.Add%28%22User-Agent%22%2C+%22PostInstall-Script%2F2.0%22%29%0D%0A++++++++++++%24wc.DownloadFile%28%24Url%2C+%24Dest%29%0D%0A++++++++++++if+%28%28Test-Path+%24Dest%29+-and+%28Get-Item+%24Dest%29.Length+-gt+0%29+%7B%0D%0A++++++++++++++++Write-OK+%22Download+OK%3A+%24%28Split-Path+%24Dest+-Leaf%29+%28%24%28%28%5Bmath%5D%3A%3ARound%28%28Get-Item+%24Dest%29.Length%2F1MB%2C1%29%29%29+MB%29%22%0D%0A++++++++++++++++return+%24true%0D%0A++++++++++++%7D%0D%0A++++++++++++Write-Fail+%22Arquivo+vazio+apos+download.%22%0D%0A++++++++%7D+catch+%7B%0D%0A++++++++++++Write-Fail+%22Tentativa+%24i+falhou%3A+%24_%22%0D%0A++++++++++++if+%28%24i+-lt+%24Tentativas%29+%7B+Start-Sleep+-Seconds+5+%7D%0D%0A++++++++%7D%0D%0A++++%7D%0D%0A++++return+%24false%0D%0A%7D%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+Instalacao+silenciosa+com+timeout+configuravel%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0Afunction+Install-Silent+%7B%0D%0A++++param%28%0D%0A++++++++%5Bstring%5D%24Exe%2C%0D%0A++++++++%5Bstring%5D%24Arguments%2C%0D%0A++++++++%5Bstring%5D%24Nome%2C%0D%0A++++++++%5Bint%5D%24TimeoutSec+%3D+300+++%23+AUMENTADO%3A+5+min+padrao+%28Chrome+precisa+de+tempo%29%0D%0A++++%29%0D%0A%0D%0A++++if+%28-not+%28Test-Path+%24Exe%29%29+%7B%0D%0A++++++++Write-Fail+%22Instalador+nao+encontrado%3A+%24Exe%22%0D%0A++++++++return+%24false%0D%0A++++%7D%0D%0A%0D%0A++++Write-Info+%22Instalando+%24Nome+%28timeout%3A+%24%7BTimeoutSec%7Ds%29...%22%0D%0A%0D%0A++++%24p+%3D+Start-Process+-FilePath+%24Exe+-ArgumentList+%24Arguments+-PassThru+-NoNewWindow%0D%0A++++%24finished+%3D+%24p.WaitForExit%28%24TimeoutSec+*+1000%29%0D%0A%0D%0A++++if+%28-not+%24finished%29+%7B%0D%0A++++++++Write-Fail+%22%24%7BNome%7D%3A+timeout+apos+%24TimeoutSec+segundos.%22%0D%0A++++++++try+%7B+%24p.Kill%28%29+%7D+catch+%7B%7D%0D%0A++++++++return+%24false%0D%0A++++%7D%0D%0A%0D%0A++++Write-OK+%22%24Nome+instalado+%28ExitCode%3A+%24%28%24p.ExitCode%29%29%22%0D%0A++++return+%24true%0D%0A%7D%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+Verifica+instalacao+via+registro%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0Afunction+Is-Installed+%7B%0D%0A++++param%28%5Bstring%5D%24Name%29%0D%0A++++%24paths+%3D+%40%28%0D%0A++++++++%22HKLM%3A%5CSoftware%5CMicrosoft%5CWindows%5CCurrentVersion%5CUninstall%5C*%22%2C%0D%0A++++++++%22HKLM%3A%5CSoftware%5CWow6432Node%5CMicrosoft%5CWindows%5CCurrentVersion%5CUninstall%5C*%22%0D%0A++++%29%0D%0A++++%24found+%3D+Get-ItemProperty+%24paths+-ErrorAction+SilentlyContinue+%7C%0D%0A+++++++++++++Where-Object+%7B+%24_.DisplayName+-like+%22*%24Name*%22+%7D%0D%0A++++return+%28%24null+-ne+%24found%29%0D%0A%7D%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+Busca+pasta+Drivers+em+todos+os+drives%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0Afunction+Find-DriversFolder+%7B%0D%0A++++param%28%5Bstring%5D%24FolderName%29%0D%0A%0D%0A++++%23+1.+Drive+do+script+%28se+rodando+de+pendrive%2FISO%29%0D%0A++++if+%28%24PSScriptRoot%29+%7B%0D%0A++++++++%24scriptDrive+%3D+Split-Path+-Qualifier+%24PSScriptRoot%0D%0A++++++++%24candidate+%3D+Join-Path+%28%24scriptDrive+%2B+%22%5C%22%29+%24FolderName%0D%0A++++++++if+%28Test-Path+%24candidate%29+%7B+Write-OK+%22Drivers+em%3A+%24candidate%22%3B+return+%24candidate+%7D%0D%0A++++%7D%0D%0A%0D%0A++++%23+2.+Todos+os+drives+prontos%0D%0A++++%24drives+%3D+%5BSystem.IO.DriveInfo%5D%3A%3AGetDrives%28%29+%7C%0D%0A++++++++++++++Where-Object+%7B+%24_.IsReady+-and+%24_.DriveType+-in+%40%28%27Fixed%27%2C%27Removable%27%2C%27Network%27%2C%27CDRom%27%29+%7D%0D%0A%0D%0A++++foreach+%28%24drive+in+%24drives%29+%7B%0D%0A++++++++if+%28%24drive.RootDirectory.FullName+-eq+%28%24env%3ASystemDrive+%2B+%22%5C%22%29%29+%7B+continue+%7D%0D%0A++++++++%24candidate+%3D+Join-Path+%24drive.RootDirectory.FullName+%24FolderName%0D%0A++++++++if+%28Test-Path+%24candidate%29+%7B+Write-OK+%22Drivers+em%3A+%24candidate%22%3B+return+%24candidate+%7D%0D%0A++++%7D%0D%0A%0D%0A++++%23+3.+Fallback+C%3A%5CDrivers%0D%0A++++%24fallback+%3D+Join-Path+%24env%3ASystemDrive+%24FolderName%0D%0A++++if+%28Test-Path+%24fallback%29+%7B+Write-OK+%22Drivers+em%3A+%24fallback%22%3B+return+%24fallback+%7D%0D%0A%0D%0A++++return+%24null%0D%0A%7D%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+Banner%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0AWrite-Host+%22%22%0D%0AWrite-Host+%22%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%22+-ForegroundColor+Magenta%0D%0AWrite-Host+%22++Pos-Instalacao+Windows+-+Silver+Solucoes+em+TI%22+-ForegroundColor+Magenta%0D%0AWrite-Host+%22++%24%28Get-Date+-Format+%27dd%2FMM%2Fyyyy+HH%3Amm%27%29%22+-ForegroundColor+Magenta%0D%0AWrite-Host+%22%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%22+-ForegroundColor+Magenta%0D%0A%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+1.+GOOGLE+CHROME%0D%0A%23+FIX%3A+chrome_installer.exe+e+um+stub+que+baixa+e+instala+em+background.%0D%0A%23++++++O+processo+pai+encerra+rapido%2C+mas+o+filho+%28GoogleUpdate%29+continua.%0D%0A%23++++++Solucao%3A+usar+o+instalador+Enterprise+%28MSI%2Fstandalone%29+que+e+atomico%0D%0A%23+++++++++++++++e+nao+depende+de+subprocessos.%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0AWrite-Step+%22Google+Chrome%22%0D%0A%0D%0Aif+%28Is-Installed+%22Google+Chrome%22%29+%7B%0D%0A++++Write-OK+%22Chrome+ja+instalado+-+pulando.%22%0D%0A%7D+else+%7B%0D%0A++++%24installer+%3D+%22%24TempDir%5CChromeEnterprise.msi%22%0D%0A%0D%0A++++%23+Instalador+Enterprise+standalone+%2864-bit%29+-+nao+e+stub%2C+nao+precisa+de+subprocesso%0D%0A++++%24chromeUrl+%3D+%22https%3A%2F%2Fdl.google.com%2Fdl%2Fchrome%2Finstall%2Fgooglechromestandaloneenterprise64.msi%22%0D%0A%0D%0A++++if+%28Download-File+-Url+%24chromeUrl+-Dest+%24installer+-TimeoutSec+180%29+%7B%0D%0A++++++++%23+msiexec+com+%2Fqn+%3D+totalmente+silencioso%2C+sem+janela%0D%0A++++++++Install-Silent+-Exe+%22msiexec.exe%22+%60%0D%0A+++++++++++++++++++++++-Arguments+%22%2Fi+%60%22%24installer%60%22+%2Fqn+%2Fnorestart+ALLUSERS%3D1%22+%60%0D%0A+++++++++++++++++++++++-Nome+%22Google+Chrome%22+%60%0D%0A+++++++++++++++++++++++-TimeoutSec+300%0D%0A++++%7D%0D%0A%7D%0D%0A%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+2.+ANYDESK%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0AWrite-Step+%22AnyDesk%22%0D%0A%0D%0Aif+%28Is-Installed+%22AnyDesk%22%29+%7B%0D%0A++++Write-OK+%22AnyDesk+ja+instalado+-+pulando.%22%0D%0A%7D+else+%7B%0D%0A++++%24installer+%3D+%22%24TempDir%5CAnyDeskSetup.exe%22%0D%0A++++%24anyArgs+++%3D+%22%2D%2Dinstall+%60%22%24env%3AProgramFiles%5CAnyDesk%60%22+%2D%2Dstart-with-win+%2D%2Dcreate-shortcuts%22%0D%0A%0D%0A++++if+%28Download-File+-Url+%22https%3A%2F%2Fdownload.anydesk.com%2FAnyDesk.exe%22+-Dest+%24installer%29+%7B%0D%0A++++++++Install-Silent+-Exe+%24installer+-Arguments+%24anyArgs+-Nome+%22AnyDesk%22+-TimeoutSec+120%0D%0A++++%7D%0D%0A%7D%0D%0A%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+3.+7-ZIP%0D%0A%23+FIX%3A+URL+hardcoded+quebra+quando+sai+nova+versao.%0D%0A%23++++++Solucao%3A+buscar+a+versao+atual+via+API+do+7-zip.org+ou+usar+URL+generica.%0D%0A%23++++++Como+o+site+nao+tem+API%2C+usamos+winget+%28disponivel+no+Win11%2FWin10+atualizado%29%0D%0A%23++++++com+fallback+para+URL+conhecida.%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0AWrite-Step+%227-Zip%22%0D%0A%0D%0Aif+%28Is-Installed+%227-Zip%22%29+%7B%0D%0A++++Write-OK+%227-Zip+ja+instalado+-+pulando.%22%0D%0A%7D+else+%7B%0D%0A++++%23+Tenta+descobrir+a+versao+mais+recente+via+pagina+de+downloads%0D%0A++++%24sevenZipUrl+%3D+%24null%0D%0A++++try+%7B%0D%0A++++++++Write-Info+%22Consultando+versao+atual+do+7-Zip...%22%0D%0A++++++++%24page+%3D+Invoke-WebRequest+-Uri+%22https%3A%2F%2Fwww.7-zip.org%2Fdownload.html%22+-UseBasicParsing+-TimeoutSec+20%0D%0A++++++++%24match+%3D+%5Bregex%5D%3A%3AMatch%28%24page.Content%2C+%27href%3D%22%28a%2F7z%5Cd%2B-x64%5C.exe%29%22%27%29%0D%0A++++++++if+%28%24match.Success%29+%7B%0D%0A++++++++++++%24sevenZipUrl+%3D+%22https%3A%2F%2Fwww.7-zip.org%2F%22+%2B+%24match.Groups%5B1%5D.Value%0D%0A++++++++++++Write-Info+%22Versao+encontrada%3A+%24sevenZipUrl%22%0D%0A++++++++%7D%0D%0A++++%7D+catch+%7B%0D%0A++++++++Write-Fail+%22Falha+ao+consultar+site+do+7-Zip%3A+%24_%22%0D%0A++++%7D%0D%0A%0D%0A++++%23+Fallback+para+versao+conhecida%0D%0A++++if+%28-not+%24sevenZipUrl%29+%7B%0D%0A++++++++%24sevenZipUrl+%3D+%22https%3A%2F%2Fwww.7-zip.org%2Fa%2F7z2407-x64.exe%22%0D%0A++++++++Write-Info+%22Usando+URL+de+fallback%3A+%24sevenZipUrl%22%0D%0A++++%7D%0D%0A%0D%0A++++%24installer+%3D+%22%24TempDir%5C7zip-setup.exe%22%0D%0A++++if+%28Download-File+-Url+%24sevenZipUrl+-Dest+%24installer%29+%7B%0D%0A++++++++Install-Silent+-Exe+%24installer+-Arguments+%22%2FS%22+-Nome+%227-Zip%22+-TimeoutSec+60%0D%0A++++%7D%0D%0A%7D%0D%0A%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+4.+RUSTDESK%0D%0A%23+FIX+PRINCIPAL%3A+A+API+do+GitHub+pode+estar+lenta%2Findisponivel+durante+o+OOBE.%0D%0A%23+++-+Aumentado+timeout+da+API+para+15s%0D%0A%23+++-+Filtro+de+asset+corrigido%3A+busca+o+.exe+nao-debug+e+nao-sciter%0D%0A%23+++-+URL+de+fallback+atualizada+para+versao+recente+conhecida%0D%0A%23+++-+Timeout+de+instalacao+aumentado+para+180s+%28instalador+e+lento%29%0D%0A%23+++-+Wait+apos+instalacao+aumentado+de+10s+para+20s%0D%0A%23+++-+Reinicio+do+RustDesk+via+servico+%28nao+Start-Process%29+para+compatibilidade+SYSTEM%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0AWrite-Step+%22RustDesk%22%0D%0A%0D%0Aif+%28-not+%28Is-Installed+%22RustDesk%22%29%29+%7B%0D%0A++++%24installer+%3D+%22%24TempDir%5Crustdesk-setup.exe%22%0D%0A++++%24rdUrl+++++%3D+%24null%0D%0A%0D%0A++++Write-Info+%22Consultando+ultima+versao+do+RustDesk+no+GitHub...%22%0D%0A++++try+%7B%0D%0A++++++++%24apiUrl++%3D+%22https%3A%2F%2Fapi.github.com%2Frepos%2Frustdesk%2Frustdesk%2Freleases%2Flatest%22%0D%0A++++++++%24headers+%3D+%40%7B+%22User-Agent%22+%3D+%22PostInstall-Script%2F2.0%22+%7D%0D%0A++++++++%24release+%3D+Invoke-RestMethod+-Uri+%24apiUrl+-Headers+%24headers+-TimeoutSec+15%0D%0A%0D%0A++++++++%23+Busca+.exe+64-bit+que+NAO+seja+debug+nem+sciter+%28esses+nao+instalam+silenciosamente%29%0D%0A++++++++%24asset+%3D+%24release.assets+%7C%0D%0A+++++++++++++++++Where-Object+%7B+%24_.name+-match+%22x86_64.*%5C.exe%24%22+-and%0D%0A++++++++++++++++++++++++++++++++%24_.name+-notmatch+%22debug%22+-and%0D%0A++++++++++++++++++++++++++++++++%24_.name+-notmatch+%22sciter%22+%7D+%7C%0D%0A+++++++++++++++++Select-Object+-First+1%0D%0A%0D%0A++++++++if+%28%24asset%29+%7B%0D%0A++++++++++++%24rdUrl+%3D+%24asset.browser_download_url%0D%0A++++++++++++Write-Info+%22RustDesk+%24%28%24release.tag_name%29%3A+%24%28%24asset.name%29%22%0D%0A++++++++%7D+else+%7B%0D%0A++++++++++++throw+%22Nenhum+asset+x86_64.exe+valido+encontrado.%22%0D%0A++++++++%7D%0D%0A++++%7D+catch+%7B%0D%0A++++++++Write-Fail+%22API+GitHub%3A+%24_%22%0D%0A++++++++Write-Info+%22Usando+URL+de+fallback...%22%0D%0A++++++++%23+Atualize+esta+URL+quando+sair+nova+versao+estavel%0D%0A++++++++%24rdUrl+%3D+%22https%3A%2F%2Fgithub.com%2Frustdesk%2Frustdesk%2Freleases%2Fdownload%2F1.3.8%2Frustdesk-1.3.8-x86_64.exe%22%0D%0A++++%7D%0D%0A%0D%0A++++if+%28Download-File+-Url+%24rdUrl+-Dest+%24installer+-TimeoutSec+180%29+%7B%0D%0A++++++++Install-Silent+-Exe+%24installer+-Arguments+%22%2D%2Dsilent-install%22+-Nome+%22RustDesk%22+-TimeoutSec+180%0D%0A++++++++Write-Info+%22Aguardando+servico+do+RustDesk+iniciar...%22%0D%0A++++++++Start-Sleep+-Seconds+20%0D%0A++++%7D%0D%0A%7D%0D%0A%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+CONFIGURACAO+DO+RUSTDESK%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0AWrite-Step+%22Configurando+RustDesk%22%0D%0A%0D%0A%23+%2D%2D-+Encerrar+processos+e+servico+antes+de+editar+configs+%2D%2D-%0D%0AWrite-Info+%22Encerrando+RustDesk...%22%0D%0AGet-Process+rustdesk+-ErrorAction+SilentlyContinue+%7C+Stop-Process+-Force+-ErrorAction+SilentlyContinue%0D%0AStop-Service+-Name+%22RustDesk%22+-ErrorAction+SilentlyContinue%0D%0AStart-Sleep+-Seconds+3%0D%0A%0D%0A%23+%2D%2D-+Gravar+RustDesk2.toml+em+todos+os+perfis+relevantes+%2D%2D-%0D%0A%24toml+%3D+%40%22%0D%0Arendezvous_server+%3D+%22%24RustDeskRelay%22%0D%0Anat_type+%3D+1%0D%0Aserial+%3D+0%0D%0A%0D%0A%5Boptions%5D%0D%0Acustom-rendezvous-server+%3D+%22%24RustDeskRelay%22%0D%0Arelay-server+%3D+%22%24RustDeskRelay%22%0D%0Akey+%3D+%22%24RustDeskKey%22%0D%0A%22%40%0D%0A%0D%0A%24configPaths+%3D+%40%28%0D%0A++++%22%24env%3AAPPDATA%5CRustDesk%5Cconfig%22%2C%0D%0A++++%22C%3A%5CWindows%5CSystem32%5Cconfig%5Csystemprofile%5CAppData%5CRoaming%5CRustDesk%5Cconfig%22%2C%0D%0A++++%22C%3A%5CWindows%5CServiceProfiles%5CLocalService%5CAppData%5CRoaming%5CRustDesk%5Cconfig%22%0D%0A%29%0D%0A%0D%0Aforeach+%28%24dir+in+%24configPaths%29+%7B%0D%0A++++try+%7B%0D%0A++++++++New-Item+-ItemType+Directory+-Force+-Path+%24dir+%7C+Out-Null%0D%0A++++++++Set-Content+-Path+%22%24dir%5CRustDesk2.toml%22+-Value+%24toml+-Encoding+UTF8%0D%0A++++++++Write-OK+%22Config+gravada%3A+%24dir%5CRustDesk2.toml%22%0D%0A++++%7D+catch+%7B%0D%0A++++++++Write-Fail+%22Falha+ao+gravar+config+em+%24dir+%3A+%24_%22%0D%0A++++%7D%0D%0A%7D%0D%0A%0D%0A%23+%2D%2D-+Reiniciar+via+servico+%2D%2D-%0D%0A%23+Usa+sc.exe+em+vez+de+Start-Service+para+evitar+os+avisos+verbose+do+PowerShell%0D%0A%23+%28%22Aguardando+que+o+servico+seja+iniciado%22%29+que+poluem+o+log+sem+indicar+erro+real.%0D%0AWrite-Info+%22Iniciando+servico+RustDesk...%22%0D%0A%0D%0A%23+Aguarda+o+SCM+registrar+o+servico+%28pode+demorar+alguns+segundos+apos+instalacao%29%0D%0A%24svcReady+%3D+%24false%0D%0Afor+%28%24i+%3D+1%3B+%24i+-le+6%3B+%24i%2B%2B%29+%7B%0D%0A++++%24svc+%3D+Get-Service+-Name+%22RustDesk%22+-ErrorAction+SilentlyContinue%0D%0A++++if+%28%24svc%29+%7B+%24svcReady+%3D+%24true%3B+break+%7D%0D%0A++++Write-Info+%22Aguardando+registro+do+servico...+%28%24i%2F6%29%22%0D%0A++++Start-Sleep+-Seconds+5%0D%0A%7D%0D%0A%0D%0Aif+%28-not+%24svcReady%29+%7B%0D%0A++++Write-Fail+%22Servico+RustDesk+nao+encontrado+apos+30s+-+verifique+se+a+instalacao+foi+concluida.%22%0D%0A%7D+else+%7B%0D%0A++++%23+sc.exe+start+nao+gera+os+avisos+de+%22aguardando%22+do+PowerShell%0D%0A++++%24scOut+%3D+%26+sc.exe+start+RustDesk+2%3E%261%0D%0A++++Start-Sleep+-Seconds+5%0D%0A%0D%0A++++%24svc.Refresh%28%29%0D%0A++++if+%28%24svc.Status+-eq+%22Running%22%29+%7B%0D%0A++++++++Write-OK+%22Servico+RustDesk+em+execucao.%22%0D%0A++++%7D+elseif+%28%24svc.Status+-eq+%22StartPending%22%29+%7B%0D%0A++++++++Write-OK+%22Servico+RustDesk+iniciando+%28StartPending%29+-+normal+em+primeiro+uso.%22%0D%0A++++%7D+else+%7B%0D%0A++++++++Write-Fail+%22Servico+RustDesk+nao+iniciou+%28status%3A+%24%28%24svc.Status%29%29.%22%0D%0A++++++++Write-Info+%22Saida+do+sc.exe%3A+%24scOut%22%0D%0A++++%7D%0D%0A%7D%0D%0A%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+5.+DRIVERS%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0AWrite-Step+%22Drivers+-+procurando+pasta+%27%24DriversFolderName%27%22%0D%0A%0D%0A%24DriversPath+%3D+Find-DriversFolder+-FolderName+%24DriversFolderName%0D%0A%0D%0Aif+%28%24null+-eq+%24DriversPath%29+%7B%0D%0A++++Write-Info+%22Pasta+%27%24DriversFolderName%27+nao+encontrada+-+etapa+ignorada.%22%0D%0A%7D+else+%7B%0D%0A++++%23+INF+via+pnputil%0D%0A++++Write-Info+%22Instalando+drivers+.inf+via+pnputil%3A+%24DriversPath%22%0D%0A++++%24pnpResult+%3D+%26+pnputil.exe+%2Fadd-driver+%22%24DriversPath%5C*.inf%22+%2Fsubdirs+%2Finstall+2%3E%261%0D%0A++++if+%28%24LASTEXITCODE+-eq+0%29+%7B%0D%0A++++++++Write-OK+%22Drivers+.inf+instalados.%22%0D%0A++++%7D+else+%7B%0D%0A++++++++Write-Fail+%22pnputil+exit+code+%24LASTEXITCODE%22%0D%0A++++%7D%0D%0A++++Write-Info+%28%24pnpResult+-join+%22%60n%22%29%0D%0A%0D%0A++++%23+EXE+na+raiz+da+pasta+Drivers%0D%0A++++%24exeDrivers+%3D+Get-ChildItem+-Path+%24DriversPath+-Filter+%22*.exe%22+-Depth+1+-ErrorAction+SilentlyContinue%0D%0A++++if+%28%24exeDrivers.Count+-gt+0%29+%7B%0D%0A++++++++Write-Info+%22%24%28%24exeDrivers.Count%29+driver%28s%29+.exe+encontrado%28s%29.%22%0D%0A++++++++foreach+%28%24exe+in+%24exeDrivers%29+%7B%0D%0A++++++++++++Write-Info+%22Executando%3A+%24%28%24exe.Name%29%22%0D%0A++++++++++++%24p+%3D+Start-Process+-FilePath+%24exe.FullName+-ArgumentList+%22%2Fs+%2FS+%2Fsilent+%2Fquiet%22+-Wait+-PassThru+-NoNewWindow%0D%0A++++++++++++Write-OK+%22%24%28%24exe.Name%29+-+ExitCode%3A+%24%28%24p.ExitCode%29%22%0D%0A++++++++%7D%0D%0A++++%7D%0D%0A%7D%0D%0A%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+6.+SETUP-WINGET+%28opcional+-+se+existir+na+mesma+pasta%29%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0AWrite-Step+%22Verificando+Setup-Winget.ps1%22%0D%0A%0D%0A%24wingetScript+%3D+%24null%0D%0A%0D%0A%23+Determina+o+diretorio+do+script+atual%0D%0A%23+%24PSScriptRoot+funciona+quando+executado+como+arquivo%3B+fallback+para+split+do+MyInvocation%0D%0Aif+%28%24PSScriptRoot+-and+%28Test-Path+%24PSScriptRoot%29%29+%7B%0D%0A++++%24wingetScript+%3D+Join-Path+%24PSScriptRoot+%22Setup-Winget.ps1%22%0D%0A%7D+elseif+%28%24MyInvocation.MyCommand.Path%29+%7B%0D%0A++++%24wingetScript+%3D+Join-Path+%28Split-Path+%24MyInvocation.MyCommand.Path%29+%22Setup-Winget.ps1%22%0D%0A%7D%0D%0A%0D%0Aif+%28%24wingetScript+-and+%28Test-Path+%24wingetScript%29%29+%7B%0D%0A++++Write-OK+%22Setup-Winget.ps1+encontrado+-+executando...%22%0D%0A++++try+%7B%0D%0A++++++++%26+powershell.exe+-NoProfile+-ExecutionPolicy+Bypass+-File+%24wingetScript%0D%0A++++++++Write-OK+%22Setup-Winget.ps1+concluido.%22%0D%0A++++%7D+catch+%7B%0D%0A++++++++Write-Fail+%22Erro+ao+executar+Setup-Winget.ps1%3A+%24_%22%0D%0A++++%7D%0D%0A%7D+else+%7B%0D%0A++++Write-Info+%22Setup-Winget.ps1+nao+encontrado+na+mesma+pasta+-+etapa+ignorada.%22%0D%0A++++Write-Info+%22Crie+o+arquivo+%27%24wingetScript%27+para+ativar+instalacoes+extras+via+winget.%22%0D%0A%7D%0D%0A%0D%0A%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+7.+TACTICAL+RMM+AGENT+%28opcional%29%0D%0A%23%0D%0A%23+COMO+USAR%3A%0D%0A%23+++1.+No+painel+do+Tactical+RMM%2C+gere+o+instalador+do+agente+%28.exe%29%0D%0A%23+++2.+Coloque+o+.exe+na+RAIZ+de+qualquer+drive+conectado+ao+PC%3A%0D%0A%23++++++-+Raiz+da+midia+de+instalacao+do+Windows+%28ISO%2Fpendrive%29%0D%0A%23++++++-+Pendrive+separado%0D%0A%23++++++-+Qualquer+particao+fixa%0D%0A%23+++3.+O+script+varre+todos+os+drives+automaticamente%2C+igual+ao+mecanismo%0D%0A%23++++++de+busca+de+drivers%2C+e+instala+o+primeiro+que+encontrar%0D%0A%23+++4.+Se+nao+encontrar+nenhum%2C+continua+sem+erro%0D%0A%23%0D%0A%23+NOMES+RECONHECIDOS%3A+qualquer+.exe+contendo+%22trmm%22+ou+%22tactical%22+no+nome%0D%0A%23+++Exemplos%3A+trmm-silver-site-workstation-amd64.exe%0D%0A%23+++++++++++++trmm-silver-site-server-amd64.exe%0D%0A%23%0D%0A%23+NOTA%3A+o+instalador+expira+em+30+dias.+Basta+substituir+o+.exe+na+midia.%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0AWrite-Step+%22Tactical+RMM+Agent%22%0D%0A%0D%0Afunction+Find-TacticalInstaller+%7B%0D%0A++++%24drives+%3D+%5BSystem.IO.DriveInfo%5D%3A%3AGetDrives%28%29+%7C%0D%0A++++++++++++++Where-Object+%7B+%24_.IsReady+-and%0D%0A+++++++++++++++++++++++++++++%24_.DriveType+-in+%40%28%27Fixed%27%2C%27Removable%27%2C%27Network%27%2C%27CDRom%27%29+%7D%0D%0A%0D%0A++++foreach+%28%24drive+in+%24drives%29+%7B%0D%0A++++++++%23+Varre+a+raiz+do+drive+%28nao+recursivo+-+o+EXE+fica+na+raiz+da+midia%29%0D%0A++++++++%24found+%3D+Get-ChildItem+-Path+%24drive.RootDirectory.FullName+-Filter+%22*.exe%22+%60%0D%0A+++++++++++++++++++++++++++++++-ErrorAction+SilentlyContinue+%7C%0D%0A+++++++++++++++++Where-Object+%7B+%24_.Name+-match+%22trmm%7Ctactical%22+%7D+%7C%0D%0A+++++++++++++++++Sort-Object+LastWriteTime+-Descending+%7C%0D%0A+++++++++++++++++Select-Object+-First+1%0D%0A%0D%0A++++++++if+%28%24found%29+%7B%0D%0A++++++++++++Write-OK+%22Encontrado+em+%24%28%24drive.RootDirectory.FullName%29%3A+%24%28%24found.Name%29%22%0D%0A++++++++++++return+%24found%0D%0A++++++++%7D%0D%0A++++%7D%0D%0A++++return+%24null%0D%0A%7D%0D%0A%0D%0A%23+Detecta+automaticamente+workstation+ou+server+pelo+SKU+do+Windows%0D%0A%24osSku+%3D+%28Get-WmiObject+Win32_OperatingSystem%29.OperatingSystemSKU%0D%0A%23+SKUs+de+servidor%3A+7+%28Standard%29%2C+8+%28Datacenter%29%2C+12+%28Datacenter+Core%29%2C+13+%28Standard+Core%29%0D%0A%23+e+outros+acima+de+6+que+nao+sao+Desktop%0D%0A%24isServer+%3D+%24osSku+-in+%40%287%2C+8%2C+9%2C+10%2C+11%2C+12%2C+13%2C+14%2C+15%2C+16%2C+17%2C+18%2C+29%29%0D%0A%24perfilAlvo+%3D+if+%28%24isServer%29+%7B+%22server%22+%7D+else+%7B+%22workstation%22+%7D%0D%0AWrite-Info+%22Perfil+detectado%3A+%24perfilAlvo+%28SKU%3A+%24osSku%29%22%0D%0A%0D%0A%24tacticalInstaller+%3D+%24null%0D%0A%24drives+%3D+%5BSystem.IO.DriveInfo%5D%3A%3AGetDrives%28%29+%7C%0D%0A++++++++++Where-Object+%7B+%24_.IsReady+-and%0D%0A+++++++++++++++++++++++++%24_.DriveType+-in+%40%28%27Fixed%27%2C%27Removable%27%2C%27Network%27%2C%27CDRom%27%29+%7D%0D%0A%0D%0Aforeach+%28%24drive+in+%24drives%29+%7B%0D%0A++++%23+Tenta+primeiro+o+EXE+do+perfil+correto+%28workstation+ou+server%29%0D%0A++++%24found+%3D+Get-ChildItem+-Path+%24drive.RootDirectory.FullName+-Filter+%22*.exe%22+%60%0D%0A+++++++++++++++++++++++++++-ErrorAction+SilentlyContinue+%7C%0D%0A+++++++++++++Where-Object+%7B+%24_.Name+-match+%22trmm%7Ctactical%22+%7D+%7C%0D%0A+++++++++++++Sort-Object+%40%7B%0D%0A+++++++++++++++++%23+Prioriza+o+EXE+que+contenha+o+perfil+correto+no+nome%0D%0A+++++++++++++++++Expression+%3D+%7B+if+%28%24_.Name+-match+%24perfilAlvo%29+%7B+0+%7D+else+%7B+1+%7D+%7D%0D%0A+++++++++++++%7D%2C+LastWriteTime+-Descending+%7C%0D%0A+++++++++++++Select-Object+-First+1%0D%0A%0D%0A++++if+%28%24found%29+%7B%0D%0A++++++++Write-OK+%22Instalador+encontrado%3A+%24%28%24drive.RootDirectory.FullName%29%24%28%24found.Name%29%22%0D%0A++++++++%24tacticalInstaller+%3D+%24found%0D%0A++++++++break%0D%0A++++%7D%0D%0A%7D%0D%0A%0D%0Aif+%28%24tacticalInstaller%29+%7B%0D%0A++++%23+O+EXE+gerado+pelo+Tactical+ja+tem+servidor%2Ftoken+embutidos%0D%0A++++%23+%2FS+%3D+silent+install%0D%0A++++%24p+%3D+Start-Process+-FilePath+%24tacticalInstaller.FullName+%60%0D%0A+++++++++++++++++++++++-ArgumentList+%22%2FS%22+%60%0D%0A+++++++++++++++++++++++-Wait+-PassThru+-NoNewWindow+%60%0D%0A+++++++++++++++++++++++-ErrorAction+SilentlyContinue%0D%0A%0D%0A++++if+%28%24p+-and+%24p.ExitCode+-eq+0%29+%7B%0D%0A++++++++Write-OK+%22Tactical+RMM+Agent+instalado+com+sucesso.%22%0D%0A++++%7D+elseif+%28%24p%29+%7B%0D%0A++++++++Write-Info+%22Tactical+RMM+Agent+-+ExitCode%3A+%24%28%24p.ExitCode%29+%28pode+ser+instalacao+ja+existente%29.%22%0D%0A++++%7D+else+%7B%0D%0A++++++++Write-Fail+%22Falha+ao+iniciar+o+instalador+do+Tactical+RMM.%22%0D%0A++++%7D%0D%0A%7D+else+%7B%0D%0A++++Write-Info+%22Nenhum+instalador+do+Tactical+RMM+encontrado+em+nenhum+drive+-+etapa+ignorada.%22%0D%0A%7D%0D%0A%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0A%23+RESUMO+FINAL%0D%0A%23+%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0D%0AWrite-Host+%22%22%0D%0AWrite-Host+%22%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%22+-ForegroundColor+Magenta%0D%0AWrite-Host+%22++Concluido%21+%24%28Get-Date+-Format+%27dd%2FMM%2Fyyyy+HH%3Amm%27%29%22+-ForegroundColor+Magenta%0D%0AWrite-Host+%22++Log%3A+%24logFile%22+-ForegroundColor+Magenta%0D%0AWrite-Host+%22%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%22+-ForegroundColor+Magenta%0D%0AWrite-Host+%22%22%0D%0A%0D%0AStop-Transcript+%7C+Out-Null%0D%0A&FirstLogonScriptType1=Ps1&AppLockerMode=Skip-->
+	<settings pass="offlineServicing"></settings>
+	<settings pass="windowsPE">
+		<component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<RunSynchronous>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>1</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:@echo off&amp;echo:call :print ^"Setting keyboard layout for PE session^"&amp;echo:wpeutil.exe SetKeyboardLayout 0416:00010416&amp;echo:for ^%^%d in (C D E F G H I J K L M N O P Q T U V X Y Z^) do ()</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>2</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:if exist ^%^%d:\sources\install.wim set ^"IMAGE_FILE=^%^%d:\sources\install.wim^"&amp;echo:if exist ^%^%d:\sources\install.esd set ^"IMAGE_FILE=^%^%d:\sources\install.esd^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>3</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:if exist ^%^%d:\sources\install.swm set ^"IMAGE_FILE=^%^%d:\sources\install.swm^" ^&amp; set ^"SWM_PARAM=/SWMFile:^%^%d:\sources\install*.swm^"&amp;echo:if exist ^%^%d:\autounattend.xml set ^"XML_FILE=^%^%d:\autounattend.xml^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>4</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:if exist ^%^%d:\$OEM$ set ^"OEM_FOLDER=^%^%d:\$OEM$^"&amp;echo:if exist ^%^%d:\$WinPEDriver$ set ^"PEDRIVERS_FOLDER=^%^%d:\$WinPEDriver$^"&amp;echo:if exist ^%^%d:\virtio-win-guest-tools.exe set ^"VIRTIO_DRIVE=^%^%d:^"&amp;echo:^))</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>5</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:for /f ^"tokens=3^" ^%^%t in ('reg.exe query HKLM\System\Setup /v UnattendFile 2^^^&gt;nul'^) do ( if exist ^%^%t set ^"XML_FILE=^%^%t^" ^))</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>6</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:if not defined IMAGE_FILE call :fail ^"Could not locate install.wim, install.esd or install.swm.^"&amp;echo:if not defined XML_FILE call :fail ^"Could not locate autounattend.xml.^"&amp;echo:set ^"OS_VERSION=11^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>7</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:for /f ^"tokens=3 delims=.^" ^%^%v in ('ver'^) do (&amp;echo:if ^%^%v LSS 20000 set ^"OS_VERSION=10^"&amp;echo:^)&amp;echo:if defined PEDRIVERS_FOLDER (&amp;echo:call :print ^"Loading drivers from $WinPEDriver$ folder^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>8</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:for /R ^%PEDRIVERS_FOLDER^% ^%^%f IN (*.inf^) do drvload.exe ^"^%^%f^"&amp;echo:^)&amp;echo:if defined VIRTIO_DRIVE (&amp;echo:call :print ^"Loading VirtIO drivers^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>9</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:drvload.exe ^"^%VIRTIO_DRIVE^%\vioscsi\w^%OS_VERSION^%\^%PROCESSOR_ARCHITECTURE^%\vioscsi.inf^"&amp;echo:drvload.exe ^"^%VIRTIO_DRIVE^%\NetKVM\w^%OS_VERSION^%\^%PROCESSOR_ARCHITECTURE^%\netkvm.inf^"&amp;echo:^)&amp;echo:^&gt;X:\GPT.txt ()</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>10</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:echo:SELECT DISK=0&amp;echo:echo:CLEAN&amp;echo:echo:CONVERT GPT&amp;echo:echo:CREATE PARTITION EFI SIZE=300&amp;echo:echo:FORMAT QUICK FS=FAT32 LABEL=^^^"System^^^"&amp;echo:echo:ASSIGN LETTER=S&amp;echo:echo:CREATE PARTITION MSR SIZE=16)</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>11</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:echo:CREATE PARTITION PRIMARY&amp;echo:echo:SHRINK MINIMUM=1000&amp;echo:echo:FORMAT QUICK FS=NTFS LABEL=^^^"Windows^^^"&amp;echo:echo:ASSIGN LETTER=W&amp;echo:echo:CREATE PARTITION PRIMARY)</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>12</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:echo:FORMAT QUICK FS=NTFS LABEL=^^^"Recovery^^^"&amp;echo:echo:ASSIGN LETTER=R&amp;echo:echo:SET ID=^^^"de94bba4-06d1-4d40-a16a-bfd50179d6ac^^^"&amp;echo:echo:GPT ATTRIBUTES=0x8000000000000001&amp;echo:^)&amp;echo:^&gt;X:\MBR.txt ()</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>13</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:echo:SELECT DISK=0&amp;echo:echo:CLEAN&amp;echo:echo:CREATE PARTITION PRIMARY SIZE=300&amp;echo:echo:FORMAT QUICK FS=NTFS LABEL=^^^"System^^^"&amp;echo:echo:ASSIGN LETTER=S&amp;echo:echo:ACTIVE&amp;echo:echo:CREATE PARTITION PRIMARY)</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>14</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:echo:SHRINK MINIMUM=1000&amp;echo:echo:FORMAT QUICK FS=NTFS LABEL=^^^"Windows^^^"&amp;echo:echo:ASSIGN LETTER=W&amp;echo:echo:CREATE PARTITION PRIMARY&amp;echo:echo:FORMAT QUICK FS=NTFS LABEL=^^^"Recovery^^^"&amp;echo:echo:ASSIGN LETTER=R)</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>15</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:echo:SET ID=27&amp;echo:^)&amp;echo:wpeutil.exe UpdateBootInfo&amp;echo:for /f ^"tokens=3^" ^%^%t in ('reg.exe query HKLM\System\CurrentControlSet\Control /v PEFirmwareType'^) do (&amp;echo:if ^%^%t == 0x1 (&amp;echo:set ^"LAYOUT=MBR^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>16</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:^) else if ^%^%t == 0x2 (&amp;echo:set ^"LAYOUT=GPT^"&amp;echo:^) else (&amp;echo:call :fail ^"Unexpected value ^%^%t.^"&amp;echo:^)&amp;echo:^)&amp;echo:call :print ^"The target disk will be configured with the ^%LAYOUT^% partition layout^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>17</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:call :print ^"diskpart will now partition and format your disk^"&amp;echo:diskpart.exe /s X:\^%LAYOUT^%.txt ^|^| call :fail ^"diskpart.exe encountered an error.^"&amp;echo:set ^"IMG_PARAM=/Index:2^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>18</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:call :print ^"Applying Windows image to target disk^"&amp;echo:dism.exe /Apply-Image /ImageFile:^%IMAGE_FILE^% ^%SWM_PARAM^% ^%IMG_PARAM^% /ApplyDir:W:\ ^|^| call :fail ^"dism.exe encountered an error.^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>19</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:call :print ^"Making system partition bootable^"&amp;echo:bcdboot.exe W:\Windows /s S: ^|^| call :fail ^"bcdboot.exe encountered an error.^"&amp;echo:bcdedit.exe /set {fwbootmgr} bootsequence {bootmgr})</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>20</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:call :print ^"Copying answer file to target disk^"&amp;echo:mkdir W:\Windows\Panther&amp;echo:copy ^%XML_FILE^% W:\Windows\Panther\unattend.xml&amp;echo:if defined PEDRIVERS_FOLDER ()</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>21</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:call :print ^"Adding drivers from $WinPEDriver$ folder to new installation^"&amp;echo:dism.exe /Add-Driver /Image:W:\ /Driver:^"^%PEDRIVERS_FOLDER^%^" /Recurse&amp;echo:^)&amp;echo:if defined VIRTIO_DRIVE ()</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>22</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:call :print ^"Adding VirtIO drivers to new installation^"&amp;echo:dism.exe /Add-Driver /Image:W:\ /Driver:^"^%VIRTIO_DRIVE^%\vioscsi\w^%OS_VERSION^%\^%PROCESSOR_ARCHITECTURE^%\vioscsi.inf^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>23</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:dism.exe /Add-Driver /Image:W:\ /Driver:^"^%VIRTIO_DRIVE^%\NetKVM\w^%OS_VERSION^%\^%PROCESSOR_ARCHITECTURE^%\netkvm.inf^"&amp;echo:^)&amp;echo:call :print ^"Setting device setup region to Brazil (GeoID 32^)^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>24</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:reg.exe LOAD HKLM\mount W:\Windows\System32\config\SOFTWARE&amp;echo:reg.exe ADD ^"HKLM\mount\Microsoft\Windows\CurrentVersion\Control Panel\DeviceRegion^" /v DeviceRegion /t REG_DWORD /d 32 /f&amp;echo:reg.exe UNLOAD HKLM\mount)</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>25</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:set ^"ROBOCOPY_ARGS=/E /XX /COPY:DAT /DCOPY:DAT /R:0^"&amp;echo:if defined OEM_FOLDER (&amp;echo:call :print ^"Copying contents of $OEM$ folder^")</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>26</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:if exist ^"^%OEM_FOLDER^%\$$^" robocopy.exe ^"^%OEM_FOLDER^%\$$^" W:\Windows ^%ROBOCOPY_ARGS^%&amp;echo:if exist ^"^%OEM_FOLDER^%\$1^" robocopy.exe ^"^%OEM_FOLDER^%\$1^" W:\ ^%ROBOCOPY_ARGS^%)</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>27</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:for ^%^%d in (C D E F G H I J K L M N O P Q R S T U V W X Y Z^) do (&amp;echo:if exist ^"^%OEM_FOLDER^%\^%^%d^" robocopy.exe ^"^%OEM_FOLDER^%\^%^%d^" ^%^%d:\ ^%ROBOCOPY_ARGS^%&amp;echo:^)&amp;echo:^))</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>28</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:call :print ^"Computer will now reboot^"&amp;echo:wpeutil.exe reboot&amp;echo:goto :eof&amp;echo::fail&amp;echo:echo:&amp;echo:echo:Fatal error: ^%~1&amp;echo:echo:&amp;echo:pause&amp;echo:exit 1&amp;echo::print&amp;echo:echo:&amp;echo:echo:*** ^%~1 ***&amp;echo:echo:)</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>29</Order>
+					<Path>cmd.exe /c &gt;&gt;X:\pe.cmd (echo:goto :eof)</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>30</Order>
+					<Path>cmd.exe /c "X:\pe.cmd"</Path>
+				</RunSynchronousCommand>
+			</RunSynchronous>
+		</component>
+	</settings>
+	<settings pass="generalize"></settings>
+	<settings pass="specialize">
+		<component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<RunSynchronous>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>1</Order>
+					<Path>powershell.exe -WindowStyle "Normal" -NoProfile -Command "$xml = [xml]::new(); $xml.Load('C:\Windows\Panther\unattend.xml'); $sb = [scriptblock]::Create( $xml.unattend.Extensions.ExtractScript ); Invoke-Command -ScriptBlock $sb -ArgumentList $xml;"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>2</Order>
+					<Path>powershell.exe -WindowStyle "Normal" -ExecutionPolicy "Unrestricted" -NoProfile -File "C:\Windows\Setup\Scripts\Specialize.ps1"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>3</Order>
+					<Path>reg.exe load "HKU\DefaultUser" "C:\Users\Default\NTUSER.DAT"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>4</Order>
+					<Path>powershell.exe -WindowStyle "Normal" -ExecutionPolicy "Unrestricted" -NoProfile -File "C:\Windows\Setup\Scripts\DefaultUser.ps1"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>5</Order>
+					<Path>reg.exe unload "HKU\DefaultUser"</Path>
+				</RunSynchronousCommand>
+			</RunSynchronous>
+		</component>
+	</settings>
+	<settings pass="auditSystem"></settings>
+	<settings pass="auditUser"></settings>
+	<settings pass="oobeSystem">
+		<component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<InputLocale>0416:00010416</InputLocale>
+			<SystemLocale>pt-BR</SystemLocale>
+			<UILanguage>pt-PT</UILanguage>
+			<UserLocale>pt-BR</UserLocale>
+		</component>
+		<component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<UserAccounts>
+				<LocalAccounts>
+					<LocalAccount wcm:action="add">
+						<Name>silver</Name>
+						<DisplayName>Silver</DisplayName>
+						<Group>Administrators</Group>
+						<Password>
+							<Value>12345</Value>
+							<PlainText>true</PlainText>
+						</Password>
+					</LocalAccount>
+				</LocalAccounts>
+			</UserAccounts>
+			<AutoLogon>
+				<Username>silver</Username>
+				<Enabled>true</Enabled>
+				<LogonCount>1</LogonCount>
+				<Password>
+					<Value>12345</Value>
+					<PlainText>true</PlainText>
+				</Password>
+			</AutoLogon>
+			<OOBE>
+				<ProtectYourPC>3</ProtectYourPC>
+				<HideEULAPage>true</HideEULAPage>
+				<HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+				<HideOnlineAccountScreens>false</HideOnlineAccountScreens>
+			</OOBE>
+			<FirstLogonCommands>
+				<SynchronousCommand wcm:action="add">
+					<Order>1</Order>
+					<CommandLine>powershell.exe -WindowStyle "Normal" -ExecutionPolicy "Unrestricted" -NoProfile -File "C:\Windows\Setup\Scripts\FirstLogon.ps1"</CommandLine>
+				</SynchronousCommand>
+			</FirstLogonCommands>
+		</component>
+	</settings>
+	<Extensions xmlns="https://schneegans.de/windows/unattend-generator/">
+		<Build>
+			<Commit>
+				<Hash>ba2c89c30cd43bcfe35a7e67e9596a9a11f22e3f</Hash>
+				<GitHubUrl>https://github.com/cschneegans/unattend-generator/commit/ba2c89c30cd43bcfe35a7e67e9596a9a11f22e3f</GitHubUrl>
+			</Commit>
+		</Build>
+		<ExtractScript>
+param(
+    [xml] $Document
+);
+
+foreach( $file in $Document.unattend.Extensions.File ) {
+    $path = [System.Environment]::ExpandEnvironmentVariables( $file.GetAttribute( 'path' ) );
+    mkdir -Path( $path | Split-Path -Parent ) -ErrorAction 'SilentlyContinue';
+    $encoding = switch( [System.IO.Path]::GetExtension( $path ) ) {
+        { $_ -in '.ps1', '.xml' } { [System.Text.Encoding]::UTF8; }
+        { $_ -in '.reg', '.vbs', '.js' } { [System.Text.UnicodeEncoding]::new( $false, $true ); }
+        default { [System.Text.Encoding]::Default; }
+    };
+    $bytes = $encoding.GetPreamble() + $encoding.GetBytes( $file.InnerText.Trim() );
+    [System.IO.File]::WriteAllBytes( $path, $bytes );
+}
+		</ExtractScript>
+		<File path="C:\Windows\Setup\Scripts\RemovePackages.ps1">
+$selectors = @(
+	'Clipchamp.Clipchamp';
+	'Microsoft.549981C3F5F10';
+	'Microsoft.Windows.DevHome';
+	'Microsoft.WindowsFeedbackHub';
+	'Microsoft.Getstarted';
+	'Microsoft.WindowsMaps';
+	'Microsoft.MixedReality.Portal';
+	'Microsoft.BingNews';
+	'Microsoft.MicrosoftOfficeHub';
+	'Microsoft.People';
+	'Microsoft.MicrosoftSolitaireCollection';
+	'Microsoft.ZuneVideo';
+);
+$getCommand = {
+  Get-AppxProvisionedPackage -Online;
+};
+$filterCommand = {
+  $_.DisplayName -eq $selector;
+};
+$removeCommand = {
+  [CmdletBinding()]
+  param(
+    [Parameter( Mandatory, ValueFromPipeline )]
+    $InputObject
+  );
+  process {
+    $InputObject | Remove-AppxProvisionedPackage -AllUsers -Online -ErrorAction 'Continue';
+  }
+};
+$type = 'Package';
+$logfile = 'C:\Windows\Setup\Scripts\RemovePackages.log';
+&amp; {
+	$installed = &amp; $getCommand;
+	foreach( $selector in $selectors ) {
+		$result = [ordered] @{
+			Selector = $selector;
+		};
+		$found = $installed | Where-Object -FilterScript $filterCommand;
+		if( $found ) {
+			$result.Output = $found | &amp; $removeCommand;
+			if( $? ) {
+				$result.Message = "$type removed.";
+			} else {
+				$result.Message = "$type not removed.";
+				$result.Error = $Error[0];
+			}
+		} else {
+			$result.Message = "$type not installed.";
+		}
+		$result | ConvertTo-Json -Depth 3 -Compress;
+	}
+} *&gt;&amp;1 | Out-String -Width 1KB -Stream &gt;&gt; $logfile;
+		</File>
+		<File path="C:\Windows\Setup\Scripts\MoveActiveHours.xml">
+&lt;Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task"&gt;
+	&lt;Triggers&gt;
+		&lt;BootTrigger&gt;
+			&lt;Repetition&gt;
+				&lt;Interval&gt;PT4H&lt;/Interval&gt;
+				&lt;StopAtDurationEnd&gt;false&lt;/StopAtDurationEnd&gt;
+			&lt;/Repetition&gt;
+			&lt;Enabled&gt;true&lt;/Enabled&gt;
+		&lt;/BootTrigger&gt;
+		&lt;RegistrationTrigger&gt;
+			&lt;Repetition&gt;
+				&lt;Interval&gt;PT4H&lt;/Interval&gt;
+				&lt;StopAtDurationEnd&gt;false&lt;/StopAtDurationEnd&gt;
+			&lt;/Repetition&gt;
+			&lt;Enabled&gt;true&lt;/Enabled&gt;
+		&lt;/RegistrationTrigger&gt;
+	&lt;/Triggers&gt;
+	&lt;Principals&gt;
+		&lt;Principal id="Author"&gt;
+			&lt;UserId&gt;S-1-5-19&lt;/UserId&gt;
+			&lt;RunLevel&gt;LeastPrivilege&lt;/RunLevel&gt;
+		&lt;/Principal&gt;
+	&lt;/Principals&gt;
+	&lt;Settings&gt;
+		&lt;MultipleInstancesPolicy&gt;IgnoreNew&lt;/MultipleInstancesPolicy&gt;
+		&lt;DisallowStartIfOnBatteries&gt;false&lt;/DisallowStartIfOnBatteries&gt;
+		&lt;StopIfGoingOnBatteries&gt;false&lt;/StopIfGoingOnBatteries&gt;
+		&lt;AllowHardTerminate&gt;true&lt;/AllowHardTerminate&gt;
+		&lt;StartWhenAvailable&gt;false&lt;/StartWhenAvailable&gt;
+		&lt;RunOnlyIfNetworkAvailable&gt;false&lt;/RunOnlyIfNetworkAvailable&gt;
+		&lt;IdleSettings&gt;
+			&lt;StopOnIdleEnd&gt;true&lt;/StopOnIdleEnd&gt;
+			&lt;RestartOnIdle&gt;false&lt;/RestartOnIdle&gt;
+		&lt;/IdleSettings&gt;
+		&lt;AllowStartOnDemand&gt;true&lt;/AllowStartOnDemand&gt;
+		&lt;Enabled&gt;true&lt;/Enabled&gt;
+		&lt;Hidden&gt;false&lt;/Hidden&gt;
+		&lt;RunOnlyIfIdle&gt;false&lt;/RunOnlyIfIdle&gt;
+		&lt;WakeToRun&gt;false&lt;/WakeToRun&gt;
+		&lt;ExecutionTimeLimit&gt;PT72H&lt;/ExecutionTimeLimit&gt;
+		&lt;Priority&gt;7&lt;/Priority&gt;
+	&lt;/Settings&gt;
+	&lt;Actions Context="Author"&gt;
+		&lt;Exec&gt;
+			&lt;Command&gt;%windir%\System32\conhost.exe&lt;/Command&gt;
+			&lt;Arguments&gt;--headless %windir%\System32\WindowsPowerShell\v1.0\powershell.exe -WindowStyle Hidden -NoProfile -NonInteractive -Command "$p = @{ LiteralPath = 'Registry::HKLM\Software\Microsoft\WindowsUpdate\UX\Settings'; Type = 'DWord'; }; $h = [datetime]::Now.Hour; Set-ItemProperty @p -Name 'ActiveHoursStart' -Value (($h + 23) % 24); Set-ItemProperty @p -Name 'ActiveHoursEnd' -Value (($h + 11) % 24); Set-ItemProperty @p -Name 'SmartActiveHoursState' -Value 0;"&lt;/Arguments&gt;
+		&lt;/Exec&gt;
+	&lt;/Actions&gt;
+&lt;/Task&gt;
+		</File>
+		<File path="C:\Windows\Setup\Scripts\TurnOffSystemSounds.ps1">
+$excludes = Get-ChildItem -LiteralPath 'Registry::HKU\DefaultUser\AppEvents\EventLabels' |
+    Where-Object -FilterScript { ($_ | Get-ItemProperty).ExcludeFromCPL -eq 1; } |
+    Select-Object -ExpandProperty 'PSChildName';
+Get-ChildItem -Path 'Registry::HKU\DefaultUser\AppEvents\Schemes\Apps\*\*' |
+    Where-Object -Property 'PSChildName' -NotIn $excludes |
+    Get-ChildItem -Include '.Current' | Set-ItemProperty -Name '(Default)' -Value '';
+		</File>
+		<File path="C:\Windows\Setup\Scripts\VBoxGuestAdditions.ps1">
+&amp; {
+	foreach( $letter in 'DEFGHIJKLMNOPQRSTUVWXYZ'.ToCharArray() ) {
+		$exe = "${letter}:\VBoxWindowsAdditions.exe";
+		if( Test-Path -LiteralPath $exe ) {
+			$certs = "${letter}:\cert";
+			Start-Process -FilePath "${certs}\VBoxCertUtil.exe" -ArgumentList "add-trusted-publisher ${certs}\vbox*.cer", "--root ${certs}\vbox*.cer"  -Wait;
+			Start-Process -FilePath $exe -ArgumentList '/with_wddm', '/S' -Wait;
+			return;
+		}
+	}
+	'VBoxGuestAdditions.iso is not attached to this VM.';
+} *&gt;&amp;1 | Out-String -Width 1KB -Stream &gt;&gt; 'C:\Windows\Setup\Scripts\VBoxGuestAdditions.log';
+		</File>
+		<File path="C:\Windows\Setup\Scripts\VMwareTools.ps1">
+&amp; {
+	foreach( $letter in 'DEFGHIJKLMNOPQRSTUVWXYZ'.ToCharArray() ) {
+		$exe = "${letter}:\setup.exe";
+		if( ( Get-Item -LiteralPath $exe -ErrorAction 'SilentlyContinue' | Select-Object -ExpandProperty 'VersionInfo' | Select-Object -ExpandProperty 'ProductName' ) -eq 'VMware Tools' ) {
+			Start-Process -FilePath $exe -ArgumentList '/s /v /qn REBOOT=R' -Wait;
+			return;
+		}
+	}
+	'VMware Tools image (windows.iso) is not attached to this VM.';
+} *&gt;&amp;1 | Out-String -Width 1KB -Stream &gt;&gt; 'C:\Windows\Setup\Scripts\VMwareTools.log';
+		</File>
+		<File path="C:\Windows\Setup\Scripts\VirtIoGuestTools.ps1">
+&amp; {
+	foreach( $letter in 'DEFGHIJKLMNOPQRSTUVWXYZ'.ToCharArray() ) {
+		$exe = "${letter}:\virtio-win-guest-tools.exe";
+		if( Test-Path -LiteralPath $exe ) {
+			Start-Process -FilePath $exe -ArgumentList '/passive', '/norestart' -Wait;
+			return;
+		}
+	}
+	'VirtIO Guest Tools image (virtio-win-*.iso) is not attached to this VM.';
+} *&gt;&amp;1 | Out-String -Width 1KB -Stream &gt;&gt; 'C:\Windows\Setup\Scripts\VirtIoGuestTools.log';
+		</File>
+		<File path="C:\Windows\Setup\Scripts\ParallelsTools.ps1">
+&amp; {
+	foreach( $letter in 'DEFGHIJKLMNOPQRSTUVWXYZ'.ToCharArray() ) {
+		$exe = "${letter}:\PTAgent.exe";
+		if( Test-Path -LiteralPath $exe ) {
+      # https://kb.parallels.com/116161/
+      # Install without any UI, don't reboot after install, and block (process doesn't exit) until installation is complete.
+      #
+      # Networking will work after this, but some other features such as touch
+      # id pass through and shared clipboard support won't work until reboot
+			Start-Process -FilePath $exe -ArgumentList '/install_silent' -Wait;
+			return;
+		}
+	}
+	'Parallels Tools image (prl-tools-win-*.iso) is not attached to this VM.';
+} *&gt;&amp;1 | Out-String -Width 1KB -Stream &gt;&gt; 'C:\Windows\Setup\Scripts\ParallelsTools.log';
+		</File>
+		<File path="C:\Windows\Setup\Scripts\GetWallpaper.ps1">
+return [System.IO.File]::ReadAllBytes('C:\Windows\Web\Wallpaper\desktop.jpg');
+		</File>
+		<File path="C:\Windows\Setup\Scripts\SetWallpaper.ps1">
+Add-Type -TypeDefinition '
+	using System.Drawing;
+	using System.Runtime.InteropServices;
+	
+	public static class WallpaperSetter {
+		[DllImport("user32.dll")]
+		private static extern bool SetSysColors(
+			int cElements, 
+			int[] lpaElements,
+			int[] lpaRgbValues
+		);
+
+		[DllImport("user32.dll")]
+		private static extern bool SystemParametersInfo(
+			uint uiAction,
+			uint uiParam,
+			string pvParam,
+			uint fWinIni
+		);
+
+		public static void SetDesktopBackground(Color color) {
+			SystemParametersInfo(20, 0, "", 0);
+			SetSysColors(1, new int[] { 1 }, new int[] { ColorTranslator.ToWin32(color) });
+		}
+
+		public static void SetDesktopImage(string file) {
+			SystemParametersInfo(20, 0, file, 0);
+		}
+	}
+' -ReferencedAssemblies 'System.Drawing';
+
+function Set-WallpaperColor {
+	param(
+		[string]
+		$HtmlColor
+	);
+
+	$color = [System.Drawing.ColorTranslator]::FromHtml( $HtmlColor );
+	[WallpaperSetter]::SetDesktopBackground( $color );
+	Set-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers' -Name 'BackgroundType' -Type 'DWord' -Value 1 -Force;
+	Set-ItemProperty -Path 'Registry::HKCU\Control Panel\Desktop' -Name 'WallPaper' -Type 'String' -Value '' -Force;
+	Set-ItemProperty -Path 'Registry::HKCU\Control Panel\Colors' -Name 'Background' -Type 'String' -Value "$($color.R) $($color.G) $($color.B)" -Force;
+}
+
+function Set-WallpaperImage {
+	param(
+		[string]
+		$LiteralPath
+	);
+
+	if( $LiteralPath | Test-Path ) {
+		[WallpaperSetter]::SetDesktopImage( $LiteralPath );
+		Set-ItemProperty -Path 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers' -Name 'BackgroundType' -Type 'DWord' -Value 0 -Force;
+		Set-ItemProperty -Path 'Registry::HKCU\Control Panel\Desktop' -Name 'WallPaper' -Type 'String' -Value $LiteralPath -Force;
+	} else {
+		"Cannot use '$LiteralPath' as a desktop wallpaper because that file does not exist.";
+	}
+}
+Set-WallpaperImage -LiteralPath 'C:\Windows\Setup\Scripts\Wallpaper';
+		</File>
+		<File path="C:\Windows\Setup\Scripts\GetLockScreenImage.ps1">
+$key = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\PersonalizationCSP';
+if (-not (Test-Path $key)) { New-Item -Path $key -Force | Out-Null };
+Set-ItemProperty $key LockScreenImagePath 'C:\Windows\Web\lockscreen.jpg' -Force;
+Set-ItemProperty $key LockScreenImageUrl  'C:\Windows\Web\lockscreen.jpg' -Force;
+Set-ItemProperty $key LockScreenImageStatus 1 -Force;
+return [System.IO.File]::ReadAllBytes('C:\Windows\Web\lockscreen.jpg');
+		</File>
+		<File path="C:\Windows\Setup\Scripts\unattend-01.cmd">
+@echo off
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""C:\Windows\Setup\Scripts\Setup-PostInstall.ps1""' -Verb RunAs"
+		</File>
+		<File path="C:\Windows\Setup\Scripts\unattend-02.ps1">
+&lt;#
+.SYNOPSIS
+    Script de pos-instalacao do Windows
+    Instala: Google Chrome, AnyDesk, 7-Zip, RustDesk
+    Configura: Servidor Relay do RustDesk
+    Instala: Drivers encontrados automaticamente em qualquer drive
+
+.NOTES
+    Compativel com execucao via autounattend.xml (contexto SYSTEM, sem desktop)
+    Tambem pode ser executado manualmente: clique direito &gt; "Executar com PowerShell"
+#&gt;
+
+# ============================================================
+# CONFIGURACOES - ajuste antes de usar
+# ============================================================
+$RustDeskRelay = "SEU_SERVIDOR_AQUI"
+$RustDeskKey   = "SUA_CHAVE_AQUI"
+$DriversFolderName = "Drivers"
+$TempDir           = "C:\Windows\Temp\PostInstall"
+# ============================================================
+
+# --- Auto-elevacao (quando executado manualmente) ---
+$currentUser = [Security.Principal.WindowsIdentity]::GetCurrent()
+$principal   = New-Object Security.Principal.WindowsPrincipal($currentUser)
+if (-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+    Start-Process powershell.exe -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
+    exit
+}
+
+# --- TLS 1.2 obrigatorio para downloads modernos ---
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+# --- Forca o uso do SystemDrive como TempDir (seguro em SYSTEM/autounattend) ---
+New-Item -ItemType Directory -Force -Path $TempDir | Out-Null
+
+# --- Log ---
+$logFile = "$TempDir\PostInstall_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
+Start-Transcript -Path $logFile -Append | Out-Null
+
+function Write-Step { param($msg) Write-Host ""; Write-Host "[&gt;&gt;&gt;] $msg" -ForegroundColor Cyan }
+function Write-OK   { param($msg) Write-Host "  [OK] $msg" -ForegroundColor Green }
+function Write-Fail { param($msg) Write-Host "  [!!] $msg" -ForegroundColor Red }
+function Write-Info { param($msg) Write-Host "  [--] $msg" -ForegroundColor Yellow }
+
+# ============================================================
+# Download com retry (substitui WebClient sem retry)
+# ============================================================
+function Download-File {
+    param(
+        [string]$Url,
+        [string]$Dest,
+        [int]$Tentativas = 3,
+        [int]$TimeoutSec = 120
+    )
+    for ($i = 1; $i -le $Tentativas; $i++) {
+        try {
+            Write-Info "Download ($i/$Tentativas): $Url"
+            $wc = New-Object System.Net.WebClient
+            $wc.Headers.Add("User-Agent", "PostInstall-Script/2.0")
+            $wc.DownloadFile($Url, $Dest)
+            if ((Test-Path $Dest) -and (Get-Item $Dest).Length -gt 0) {
+                Write-OK "Download OK: $(Split-Path $Dest -Leaf) ($(([math]::Round((Get-Item $Dest).Length/1MB,1))) MB)"
+                return $true
+            }
+            Write-Fail "Arquivo vazio apos download."
+        } catch {
+            Write-Fail "Tentativa $i falhou: $_"
+            if ($i -lt $Tentativas) { Start-Sleep -Seconds 5 }
+        }
+    }
+    return $false
+}
+
+# ============================================================
+# Instalacao silenciosa com timeout configuravel
+# ============================================================
+function Install-Silent {
+    param(
+        [string]$Exe,
+        [string]$Arguments,
+        [string]$Nome,
+        [int]$TimeoutSec = 300   # AUMENTADO: 5 min padrao (Chrome precisa de tempo)
+    )
+
+    if (-not (Test-Path $Exe)) {
+        Write-Fail "Instalador nao encontrado: $Exe"
+        return $false
+    }
+
+    Write-Info "Instalando $Nome (timeout: ${TimeoutSec}s)..."
+
+    $p = Start-Process -FilePath $Exe -ArgumentList $Arguments -PassThru -NoNewWindow
+    $finished = $p.WaitForExit($TimeoutSec * 1000)
+
+    if (-not $finished) {
+        Write-Fail "${Nome}: timeout apos $TimeoutSec segundos."
+        try { $p.Kill() } catch {}
+        return $false
+    }
+
+    Write-OK "$Nome instalado (ExitCode: $($p.ExitCode))"
+    return $true
+}
+
+# ============================================================
+# Verifica instalacao via registro
+# ============================================================
+function Is-Installed {
+    param([string]$Name)
+    $paths = @(
+        "HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*",
+        "HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*"
+    )
+    $found = Get-ItemProperty $paths -ErrorAction SilentlyContinue |
+             Where-Object { $_.DisplayName -like "*$Name*" }
+    return ($null -ne $found)
+}
+
+# ============================================================
+# Busca pasta Drivers em todos os drives
+# ============================================================
+function Find-DriversFolder {
+    param([string]$FolderName)
+
+    # 1. Drive do script (se rodando de pendrive/ISO)
+    if ($PSScriptRoot) {
+        $scriptDrive = Split-Path -Qualifier $PSScriptRoot
+        $candidate = Join-Path ($scriptDrive + "\") $FolderName
+        if (Test-Path $candidate) { Write-OK "Drivers em: $candidate"; return $candidate }
+    }
+
+    # 2. Todos os drives prontos
+    $drives = [System.IO.DriveInfo]::GetDrives() |
+              Where-Object { $_.IsReady -and $_.DriveType -in @('Fixed','Removable','Network','CDRom') }
+
+    foreach ($drive in $drives) {
+        if ($drive.RootDirectory.FullName -eq ($env:SystemDrive + "\")) { continue }
+        $candidate = Join-Path $drive.RootDirectory.FullName $FolderName
+        if (Test-Path $candidate) { Write-OK "Drivers em: $candidate"; return $candidate }
+    }
+
+    # 3. Fallback C:\Drivers
+    $fallback = Join-Path $env:SystemDrive $FolderName
+    if (Test-Path $fallback) { Write-OK "Drivers em: $fallback"; return $fallback }
+
+    return $null
+}
+
+# ============================================================
+# Banner
+# ============================================================
+Write-Host ""
+Write-Host "========================================" -ForegroundColor Magenta
+Write-Host "  Pos-Instalacao Windows - Silver Solucoes em TI" -ForegroundColor Magenta
+Write-Host "  $(Get-Date -Format 'dd/MM/yyyy HH:mm')" -ForegroundColor Magenta
+Write-Host "========================================" -ForegroundColor Magenta
+
+
+# ============================================================
+# 1. GOOGLE CHROME
+# FIX: chrome_installer.exe e um stub que baixa e instala em background.
+#      O processo pai encerra rapido, mas o filho (GoogleUpdate) continua.
+#      Solucao: usar o instalador Enterprise (MSI/standalone) que e atomico
+#               e nao depende de subprocessos.
+# ============================================================
+Write-Step "Google Chrome"
+
+if (Is-Installed "Google Chrome") {
+    Write-OK "Chrome ja instalado - pulando."
+} else {
+    $installer = "$TempDir\ChromeEnterprise.msi"
+
+    # Instalador Enterprise standalone (64-bit) - nao e stub, nao precisa de subprocesso
+    $chromeUrl = "https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi"
+
+    if (Download-File -Url $chromeUrl -Dest $installer -TimeoutSec 180) {
+        # msiexec com /qn = totalmente silencioso, sem janela
+        Install-Silent -Exe "msiexec.exe" `
+                       -Arguments "/i `"$installer`" /qn /norestart ALLUSERS=1" `
+                       -Nome "Google Chrome" `
+                       -TimeoutSec 300
+    }
+}
+
+
+# ============================================================
+# 2. ANYDESK
+# ============================================================
+Write-Step "AnyDesk"
+
+if (Is-Installed "AnyDesk") {
+    Write-OK "AnyDesk ja instalado - pulando."
+} else {
+    $installer = "$TempDir\AnyDeskSetup.exe"
+    $anyArgs   = "--install `"$env:ProgramFiles\AnyDesk`" --start-with-win --create-shortcuts"
+
+    if (Download-File -Url "https://download.anydesk.com/AnyDesk.exe" -Dest $installer) {
+        Install-Silent -Exe $installer -Arguments $anyArgs -Nome "AnyDesk" -TimeoutSec 120
+    }
+}
+
+
+# ============================================================
+# 3. 7-ZIP
+# FIX: URL hardcoded quebra quando sai nova versao.
+#      Solucao: buscar a versao atual via API do 7-zip.org ou usar URL generica.
+#      Como o site nao tem API, usamos winget (disponivel no Win11/Win10 atualizado)
+#      com fallback para URL conhecida.
+# ============================================================
+Write-Step "7-Zip"
+
+if (Is-Installed "7-Zip") {
+    Write-OK "7-Zip ja instalado - pulando."
+} else {
+    # Tenta descobrir a versao mais recente via pagina de downloads
+    $sevenZipUrl = $null
+    try {
+        Write-Info "Consultando versao atual do 7-Zip..."
+        $page = Invoke-WebRequest -Uri "https://www.7-zip.org/download.html" -UseBasicParsing -TimeoutSec 20
+        $match = [regex]::Match($page.Content, 'href="(a/7z\d+-x64\.exe)"')
+        if ($match.Success) {
+            $sevenZipUrl = "https://www.7-zip.org/" + $match.Groups[1].Value
+            Write-Info "Versao encontrada: $sevenZipUrl"
+        }
+    } catch {
+        Write-Fail "Falha ao consultar site do 7-Zip: $_"
+    }
+
+    # Fallback para versao conhecida
+    if (-not $sevenZipUrl) {
+        $sevenZipUrl = "https://www.7-zip.org/a/7z2407-x64.exe"
+        Write-Info "Usando URL de fallback: $sevenZipUrl"
+    }
+
+    $installer = "$TempDir\7zip-setup.exe"
+    if (Download-File -Url $sevenZipUrl -Dest $installer) {
+        Install-Silent -Exe $installer -Arguments "/S" -Nome "7-Zip" -TimeoutSec 60
+    }
+}
+
+
+# ============================================================
+# 4. RUSTDESK
+# FIX PRINCIPAL: A API do GitHub pode estar lenta/indisponivel durante o OOBE.
+#   - Aumentado timeout da API para 15s
+#   - Filtro de asset corrigido: busca o .exe nao-debug e nao-sciter
+#   - URL de fallback atualizada para versao recente conhecida
+#   - Timeout de instalacao aumentado para 180s (instalador e lento)
+#   - Wait apos instalacao aumentado de 10s para 20s
+#   - Reinicio do RustDesk via servico (nao Start-Process) para compatibilidade SYSTEM
+# ============================================================
+Write-Step "RustDesk"
+
+if (-not (Is-Installed "RustDesk")) {
+    $installer = "$TempDir\rustdesk-setup.exe"
+    $rdUrl     = $null
+
+    Write-Info "Consultando ultima versao do RustDesk no GitHub..."
+    try {
+        $apiUrl  = "https://api.github.com/repos/rustdesk/rustdesk/releases/latest"
+        $headers = @{ "User-Agent" = "PostInstall-Script/2.0" }
+        $release = Invoke-RestMethod -Uri $apiUrl -Headers $headers -TimeoutSec 15
+
+        # Busca .exe 64-bit que NAO seja debug nem sciter (esses nao instalam silenciosamente)
+        $asset = $release.assets |
+                 Where-Object { $_.name -match "x86_64.*\.exe$" -and
+                                $_.name -notmatch "debug" -and
+                                $_.name -notmatch "sciter" } |
+                 Select-Object -First 1
+
+        if ($asset) {
+            $rdUrl = $asset.browser_download_url
+            Write-Info "RustDesk $($release.tag_name): $($asset.name)"
+        } else {
+            throw "Nenhum asset x86_64.exe valido encontrado."
+        }
+    } catch {
+        Write-Fail "API GitHub: $_"
+        Write-Info "Usando URL de fallback..."
+        # Atualize esta URL quando sair nova versao estavel
+        $rdUrl = "https://github.com/rustdesk/rustdesk/releases/download/1.3.8/rustdesk-1.3.8-x86_64.exe"
+    }
+
+    if (Download-File -Url $rdUrl -Dest $installer -TimeoutSec 180) {
+        Install-Silent -Exe $installer -Arguments "--silent-install" -Nome "RustDesk" -TimeoutSec 180
+        Write-Info "Aguardando servico do RustDesk iniciar..."
+        Start-Sleep -Seconds 20
+    }
+}
+
+
+# ============================================================
+# CONFIGURACAO DO RUSTDESK
+# ============================================================
+Write-Step "Configurando RustDesk"
+
+# --- Encerrar processos e servico antes de editar configs ---
+Write-Info "Encerrando RustDesk..."
+Get-Process rustdesk -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+Stop-Service -Name "RustDesk" -ErrorAction SilentlyContinue
+Start-Sleep -Seconds 3
+
+# --- Gravar RustDesk2.toml em todos os perfis relevantes ---
+$toml = @"
+rendezvous_server = "$RustDeskRelay"
+nat_type = 1
+serial = 0
+
+[options]
+custom-rendezvous-server = "$RustDeskRelay"
+relay-server = "$RustDeskRelay"
+key = "$RustDeskKey"
+"@
+
+$configPaths = @(
+    "$env:APPDATA\RustDesk\config",
+    "C:\Windows\System32\config\systemprofile\AppData\Roaming\RustDesk\config",
+    "C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\RustDesk\config"
+)
+
+foreach ($dir in $configPaths) {
+    try {
+        New-Item -ItemType Directory -Force -Path $dir | Out-Null
+        Set-Content -Path "$dir\RustDesk2.toml" -Value $toml -Encoding UTF8
+        Write-OK "Config gravada: $dir\RustDesk2.toml"
+    } catch {
+        Write-Fail "Falha ao gravar config em $dir : $_"
+    }
+}
+
+# --- Reiniciar via servico ---
+# Usa sc.exe em vez de Start-Service para evitar os avisos verbose do PowerShell
+# ("Aguardando que o servico seja iniciado") que poluem o log sem indicar erro real.
+Write-Info "Iniciando servico RustDesk..."
+
+# Aguarda o SCM registrar o servico (pode demorar alguns segundos apos instalacao)
+$svcReady = $false
+for ($i = 1; $i -le 6; $i++) {
+    $svc = Get-Service -Name "RustDesk" -ErrorAction SilentlyContinue
+    if ($svc) { $svcReady = $true; break }
+    Write-Info "Aguardando registro do servico... ($i/6)"
+    Start-Sleep -Seconds 5
+}
+
+if (-not $svcReady) {
+    Write-Fail "Servico RustDesk nao encontrado apos 30s - verifique se a instalacao foi concluida."
+} else {
+    # sc.exe start nao gera os avisos de "aguardando" do PowerShell
+    $scOut = &amp; sc.exe start RustDesk 2&gt;&amp;1
+    Start-Sleep -Seconds 5
+
+    $svc.Refresh()
+    if ($svc.Status -eq "Running") {
+        Write-OK "Servico RustDesk em execucao."
+    } elseif ($svc.Status -eq "StartPending") {
+        Write-OK "Servico RustDesk iniciando (StartPending) - normal em primeiro uso."
+    } else {
+        Write-Fail "Servico RustDesk nao iniciou (status: $($svc.Status))."
+        Write-Info "Saida do sc.exe: $scOut"
+    }
+}
+
+
+# ============================================================
+# 5. DRIVERS
+# ============================================================
+Write-Step "Drivers - procurando pasta '$DriversFolderName'"
+
+$DriversPath = Find-DriversFolder -FolderName $DriversFolderName
+
+if ($null -eq $DriversPath) {
+    Write-Info "Pasta '$DriversFolderName' nao encontrada - etapa ignorada."
+} else {
+    # INF via pnputil
+    Write-Info "Instalando drivers .inf via pnputil: $DriversPath"
+    $pnpResult = &amp; pnputil.exe /add-driver "$DriversPath\*.inf" /subdirs /install 2&gt;&amp;1
+    if ($LASTEXITCODE -eq 0) {
+        Write-OK "Drivers .inf instalados."
+    } else {
+        Write-Fail "pnputil exit code $LASTEXITCODE"
+    }
+    Write-Info ($pnpResult -join "`n")
+
+    # EXE na raiz da pasta Drivers
+    $exeDrivers = Get-ChildItem -Path $DriversPath -Filter "*.exe" -Depth 1 -ErrorAction SilentlyContinue
+    if ($exeDrivers.Count -gt 0) {
+        Write-Info "$($exeDrivers.Count) driver(s) .exe encontrado(s)."
+        foreach ($exe in $exeDrivers) {
+            Write-Info "Executando: $($exe.Name)"
+            $p = Start-Process -FilePath $exe.FullName -ArgumentList "/s /S /silent /quiet" -Wait -PassThru -NoNewWindow
+            Write-OK "$($exe.Name) - ExitCode: $($p.ExitCode)"
+        }
+    }
+}
+
+
+# ============================================================
+# 6. SETUP-WINGET (opcional - se existir na mesma pasta)
+# ============================================================
+Write-Step "Verificando Setup-Winget.ps1"
+
+$wingetScript = $null
+
+# Determina o diretorio do script atual
+# $PSScriptRoot funciona quando executado como arquivo; fallback para split do MyInvocation
+if ($PSScriptRoot -and (Test-Path $PSScriptRoot)) {
+    $wingetScript = Join-Path $PSScriptRoot "Setup-Winget.ps1"
+} elseif ($MyInvocation.MyCommand.Path) {
+    $wingetScript = Join-Path (Split-Path $MyInvocation.MyCommand.Path) "Setup-Winget.ps1"
+}
+
+if ($wingetScript -and (Test-Path $wingetScript)) {
+    Write-OK "Setup-Winget.ps1 encontrado - executando..."
+    try {
+        &amp; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $wingetScript
+        Write-OK "Setup-Winget.ps1 concluido."
+    } catch {
+        Write-Fail "Erro ao executar Setup-Winget.ps1: $_"
+    }
+} else {
+    Write-Info "Setup-Winget.ps1 nao encontrado na mesma pasta - etapa ignorada."
+    Write-Info "Crie o arquivo '$wingetScript' para ativar instalacoes extras via winget."
+}
+
+
+
+# ============================================================
+# 7. TACTICAL RMM AGENT (opcional)
+#
+# COMO USAR:
+#   1. No painel do Tactical RMM, gere o instalador do agente (.exe)
+#   2. Coloque o .exe na RAIZ de qualquer drive conectado ao PC:
+#      - Raiz da midia de instalacao do Windows (ISO/pendrive)
+#      - Pendrive separado
+#      - Qualquer particao fixa
+#   3. O script varre todos os drives automaticamente, igual ao mecanismo
+#      de busca de drivers, e instala o primeiro que encontrar
+#   4. Se nao encontrar nenhum, continua sem erro
+#
+# NOMES RECONHECIDOS: qualquer .exe contendo "trmm" ou "tactical" no nome
+#   Exemplos: trmm-silver-site-workstation-amd64.exe
+#             trmm-silver-site-server-amd64.exe
+#
+# NOTA: o instalador expira em 30 dias. Basta substituir o .exe na midia.
+# ============================================================
+Write-Step "Tactical RMM Agent"
+
+function Find-TacticalInstaller {
+    $drives = [System.IO.DriveInfo]::GetDrives() |
+              Where-Object { $_.IsReady -and
+                             $_.DriveType -in @('Fixed','Removable','Network','CDRom') }
+
+    foreach ($drive in $drives) {
+        # Varre a raiz do drive (nao recursivo - o EXE fica na raiz da midia)
+        $found = Get-ChildItem -Path $drive.RootDirectory.FullName -Filter "*.exe" `
+                               -ErrorAction SilentlyContinue |
+                 Where-Object { $_.Name -match "trmm|tactical" } |
+                 Sort-Object LastWriteTime -Descending |
+                 Select-Object -First 1
+
+        if ($found) {
+            Write-OK "Encontrado em $($drive.RootDirectory.FullName): $($found.Name)"
+            return $found
+        }
+    }
+    return $null
+}
+
+# Detecta automaticamente workstation ou server pelo SKU do Windows
+$osSku = (Get-WmiObject Win32_OperatingSystem).OperatingSystemSKU
+# SKUs de servidor: 7 (Standard), 8 (Datacenter), 12 (Datacenter Core), 13 (Standard Core)
+# e outros acima de 6 que nao sao Desktop
+$isServer = $osSku -in @(7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 29)
+$perfilAlvo = if ($isServer) { "server" } else { "workstation" }
+Write-Info "Perfil detectado: $perfilAlvo (SKU: $osSku)"
+
+$tacticalInstaller = $null
+$drives = [System.IO.DriveInfo]::GetDrives() |
+          Where-Object { $_.IsReady -and
+                         $_.DriveType -in @('Fixed','Removable','Network','CDRom') }
+
+foreach ($drive in $drives) {
+    # Tenta primeiro o EXE do perfil correto (workstation ou server)
+    $found = Get-ChildItem -Path $drive.RootDirectory.FullName -Filter "*.exe" `
+                           -ErrorAction SilentlyContinue |
+             Where-Object { $_.Name -match "trmm|tactical" } |
+             Sort-Object @{
+                 # Prioriza o EXE que contenha o perfil correto no nome
+                 Expression = { if ($_.Name -match $perfilAlvo) { 0 } else { 1 } }
+             }, LastWriteTime -Descending |
+             Select-Object -First 1
+
+    if ($found) {
+        Write-OK "Instalador encontrado: $($drive.RootDirectory.FullName)$($found.Name)"
+        $tacticalInstaller = $found
+        break
+    }
+}
+
+if ($tacticalInstaller) {
+    # O EXE gerado pelo Tactical ja tem servidor/token embutidos
+    # /S = silent install
+    $p = Start-Process -FilePath $tacticalInstaller.FullName `
+                       -ArgumentList "/S" `
+                       -Wait -PassThru -NoNewWindow `
+                       -ErrorAction SilentlyContinue
+
+    if ($p -and $p.ExitCode -eq 0) {
+        Write-OK "Tactical RMM Agent instalado com sucesso."
+    } elseif ($p) {
+        Write-Info "Tactical RMM Agent - ExitCode: $($p.ExitCode) (pode ser instalacao ja existente)."
+    } else {
+        Write-Fail "Falha ao iniciar o instalador do Tactical RMM."
+    }
+} else {
+    Write-Info "Nenhum instalador do Tactical RMM encontrado em nenhum drive - etapa ignorada."
+}
+
+# ============================================================
+# RESUMO FINAL
+# ============================================================
+Write-Host ""
+Write-Host "========================================" -ForegroundColor Magenta
+Write-Host "  Concluido! $(Get-Date -Format 'dd/MM/yyyy HH:mm')" -ForegroundColor Magenta
+Write-Host "  Log: $logFile" -ForegroundColor Magenta
+Write-Host "========================================" -ForegroundColor Magenta
+Write-Host ""
+
+Stop-Transcript | Out-Null
+		</File>
+		<File path="C:\Windows\Setup\Scripts\Specialize.ps1">
+$scripts = @(
+	{
+		reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE" /v BypassNRO /t REG_DWORD /d 1 /f;
+	};
+	{
+		Remove-Item -LiteralPath 'Registry::HKLM\Software\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\DevHomeUpdate' -Force -ErrorAction 'SilentlyContinue';
+	};
+	{
+		Remove-Item -LiteralPath 'C:\Users\Default\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk', 'C:\Windows\System32\OneDriveSetup.exe', 'C:\Windows\SysWOW64\OneDriveSetup.exe' -ErrorAction 'Continue';
+	};
+	{
+		&amp; 'C:\Windows\Setup\Scripts\RemovePackages.ps1';
+	};
+	{
+		net.exe accounts /maxpwage:UNLIMITED;
+	};
+	{
+		reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /v LongPathsEnabled /t REG_DWORD /d 1 /f
+	};
+	{
+		fsutil.exe behavior set disableLastAccess 1;
+	};
+	{
+		reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v AUOptions /t REG_DWORD /d 4 /f;
+		reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoRebootWithLoggedOnUsers /t REG_DWORD /d 1 /f;
+	};
+	{
+		Register-ScheduledTask -TaskName 'MoveActiveHours' -Xml $( Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\MoveActiveHours.xml' -Raw );
+	};
+	{
+		reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d 0 /f;
+	};
+	{
+		reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\BootAnimation" /v DisableStartupSound /t REG_DWORD /d 1 /f;
+		reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\EditionOverrides" /v UserSetting_DisableStartupSound /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKLM\Software\Policies\Microsoft\Edge" /v HideFirstRunExperience /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKLM\Software\Policies\Microsoft\Edge\Recommended" /v BackgroundModeEnabled /t REG_DWORD /d 0 /f;
+		reg.exe add "HKLM\Software\Policies\Microsoft\Edge\Recommended" /v StartupBoostEnabled /t REG_DWORD /d 0 /f;
+	};
+	{
+		try {
+		  $bytes = &amp; 'C:\Windows\Setup\Scripts\GetWallpaper.ps1';
+		  [System.IO.File]::WriteAllBytes( 'C:\Windows\Setup\Scripts\Wallpaper', $bytes );
+		} catch {
+		  $_;
+		}
+	};
+	{
+		try {
+		  $bytes = &amp; 'C:\Windows\Setup\Scripts\GetLockScreenImage.ps1';
+		  [System.IO.File]::WriteAllBytes( 'C:\Windows\Setup\Scripts\LockScreenImage', $bytes );
+		  reg.exe add "HKLM\Software\Microsoft\Windows\CurrentVersion\PersonalizationCSP" /v LockScreenImagePath /t REG_SZ /d "C:\Windows\Setup\Scripts\LockScreenImage" /f;
+		} catch {
+		  $_;
+		}
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Id 0 -Activity 'Running scripts to customize your Windows installation. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $script.ToString().Trim() -replace '\s+', ' ' -replace '^(.{99})(.+)$', '$1&#x2026;';
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 | Out-String -Width 1KB -Stream &gt;&gt; "C:\Windows\Setup\Scripts\Specialize.log";
+		</File>
+		<File path="C:\Windows\Setup\Scripts\UserOnce.ps1">
+$scripts = @(
+	{
+		Set-ItemProperty -LiteralPath 'Registry::HKCU\AppEvents\Schemes' -Name '(Default)' -Type 'String' -Value '.None';
+	};
+	{
+		Set-ItemProperty -LiteralPath 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Search' -Name 'SearchboxTaskbarMode' -Type 'DWord' -Value 1;
+	};
+	{
+		&amp; 'C:\Windows\Setup\Scripts\SetWallpaper.ps1';
+	};
+	{
+		Get-Process -Name 'explorer' -ErrorAction 'SilentlyContinue' | Where-Object -FilterScript {
+			$_.SessionId -eq ( Get-Process -Id $PID ).SessionId;
+		} | Stop-Process -Force;
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Id 0 -Activity 'Running scripts to configure this user account. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $script.ToString().Trim() -replace '\s+', ' ' -replace '^(.{99})(.+)$', '$1&#x2026;';
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 | Out-String -Width 1KB -Stream &gt;&gt; "$env:TEMP\UserOnce.log";
+		</File>
+		<File path="C:\Windows\Setup\Scripts\DefaultUser.ps1">
+$scripts = @(
+	{
+		Remove-ItemProperty -LiteralPath 'Registry::HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'OneDriveSetup' -Force -ErrorAction 'Continue';
+	};
+	{
+		&amp; 'C:\Windows\Setup\Scripts\TurnOffSystemSounds.ps1';
+	};
+	{
+		$names = @(
+		  'ContentDeliveryAllowed';
+		  'FeatureManagementEnabled';
+		  'OEMPreInstalledAppsEnabled';
+		  'PreInstalledAppsEnabled';
+		  'PreInstalledAppsEverEnabled';
+		  'SilentInstalledAppsEnabled';
+		  'SoftLandingEnabled';
+		  'SubscribedContentEnabled';
+		  'SubscribedContent-310093Enabled';
+		  'SubscribedContent-338387Enabled';
+		  'SubscribedContent-338388Enabled';
+		  'SubscribedContent-338389Enabled';
+		  'SubscribedContent-338393Enabled';
+		  'SubscribedContent-353694Enabled';
+		  'SubscribedContent-353696Enabled';
+		  'SubscribedContent-353698Enabled';
+		  'SystemPaneSuggestionsEnabled';
+		);
+		
+		foreach( $name in $names ) {
+		  reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v $name /t REG_DWORD /d 0 /f;
+		}
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "UnattendedSetup" /t REG_SZ /d "powershell.exe -WindowStyle \""Normal\"" -ExecutionPolicy \""Unrestricted\"" -NoProfile -File \""C:\Windows\Setup\Scripts\UserOnce.ps1\""" /f;
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Id 0 -Activity 'Running scripts to modify the default user&#x2019;&#x2019;s registry hive. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $script.ToString().Trim() -replace '\s+', ' ' -replace '^(.{99})(.+)$', '$1&#x2026;';
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 | Out-String -Width 1KB -Stream &gt;&gt; "C:\Windows\Setup\Scripts\DefaultUser.log";
+		</File>
+		<File path="C:\Windows\Setup\Scripts\FirstLogon.ps1">
+$scripts = @(
+	{
+		Set-ItemProperty -LiteralPath 'Registry::HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon' -Name 'AutoLogonCount' -Type 'DWord' -Force -Value 0;
+	};
+	{
+		&amp; 'C:\Windows\Setup\Scripts\VBoxGuestAdditions.ps1';
+	};
+	{
+		&amp; 'C:\Windows\Setup\Scripts\VMwareTools.ps1';
+	};
+	{
+		&amp; 'C:\Windows\Setup\Scripts\VirtIoGuestTools.ps1';
+	};
+	{
+		&amp; 'C:\Windows\Setup\Scripts\ParallelsTools.ps1';
+	};
+	{
+		C:\Windows\Setup\Scripts\unattend-01.cmd;
+	};
+	{
+		&amp; 'C:\Windows\Setup\Scripts\unattend-02.ps1';
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Id 0 -Activity 'Running scripts to finalize your Windows installation. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $script.ToString().Trim() -replace '\s+', ' ' -replace '^(.{99})(.+)$', '$1&#x2026;';
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 | Out-String -Width 1KB -Stream &gt;&gt; "C:\Windows\Setup\Scripts\FirstLogon.log";
+		</File>
+	</Extensions>
+</unattend>
